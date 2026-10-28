@@ -789,7 +789,7 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
       <p class="lform__msg" id="lead-msg" role="status" aria-live="polite" hidden></p>
       <div class="lform__foot">
         <button type="submit" class="lform__btn" id="lead-submit"><span>Gửi thông tin</span></button>
-        <p class="lform__hint">Hotline/Zalo <b>0918335439</b></p>
+        <p class="lform__hint">Hotline/Zalo <b>0708485532</b></p>
       </div>
     </form>
     <div class="lform__done" id="lead-done" hidden>
@@ -1053,7 +1053,7 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
     }
     function setBusy(b){ leadBtn.disabled=b; leadBtn.querySelector('span').textContent=b?'Đang gửi...':'Gửi thông tin'; }
     function utm(){ var o={}; try{ var q=new URLSearchParams(location.search); ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){ if(q.get(k)) o[k]=q.get(k); }); if(document.referrer) o.referrer=document.referrer; }catch(e){} return o; }
-    function fallback(){ showMsg('Hệ thống nhận thông tin đang được kết nối. Anh/chị vui lòng nhắn trực tiếp Zalo 0918335439, hoặc thử lại sau ít phút.',false); }
+    function fallback(){ showMsg('Hệ thống nhận thông tin đang được kết nối. Anh/chị vui lòng nhắn trực tiếp Zalo 0708485532, hoặc thử lại sau ít phút.',false); }
     leadForm.addEventListener('submit',function(e){
       e.preventDefault();
       var name=fv('f-name'), title=fv('f-title'), company=fv('f-company'), phone=normPhone(fv('f-phone')), email=fv('f-email');
