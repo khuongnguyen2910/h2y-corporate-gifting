@@ -385,6 +385,11 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .nav::before{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 }
 
+.tap-pill{position:absolute;left:50%;transform:translateX(-50%);z-index:3;display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--navy);background:var(--gold);padding:.8rem 1.3rem;border-radius:999px;box-shadow:0 12px 32px rgba(0,0,0,.45);animation:pulse 1.8s ease-in-out infinite;white-space:nowrap}
+.tap-pill svg{width:14px;height:14px}
+.film__tap{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
+@media(min-width:900px){.film__tap{bottom:calc(120px + env(safe-area-inset-bottom,0px))}}
+.vqm-tap{top:50%;transform:translate(-50%,-50%)}
 /* ---------- usage marquee ---------- */
 .usage{background:var(--paper);padding-block:clamp(1.4rem,3vw,2rem);display:grid;gap:14px;overflow:hidden}
 
@@ -599,6 +604,7 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
       <div class="film__hud">
         <button type="button" class="cbtn" id="film-sound" aria-pressed="false"><svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9l5 6M21 9l-5 6"/></svg><span>Bật nhạc</span></button>
       </div>
+      <button type="button" class="tap-pill film__tap" id="film-tap" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><span>Chạm để bật nhạc</span></button>
       <div class="film__rail" aria-hidden="true"><i id="film-rail"></i></div>
       <p class="film__cue" id="film-cue" aria-hidden="true"><span>Cuộn để mở hộp</span><i></i></p>
     </div>
@@ -673,6 +679,7 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
     <div class="set__grid">
       <figure class="vqm-media rv-img bleed-m" data-px="0.04">
         <video id="vqm-video" class="vqm-video" src="assets/vqm-lotion.mp4" poster="assets/vqm-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Video Vibanqm Lotion"></video>
+        <button type="button" class="tap-pill vqm-tap" id="vqm-tap" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><span>Chạm để bật tiếng</span></button>
         <button type="button" class="cbtn vqm-sound" id="vqm-sound" aria-pressed="false"><svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9l5 6M21 9l-5 6"/></svg><span>Bật tiếng</span></button>
       </figure>
       <div class="set__text">
@@ -871,22 +878,39 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
   /* VIP: scroll film (frame sequence on canvas) + music */
   var film=document.getElementById('film'), canvas=document.getElementById('film-canvas');
   var filmAudio=document.getElementById('film-audio'), soundBtn=document.getElementById('film-sound');
-  var musicWanted=true, musicOn=false, inFilm=false, gestureArmed=false, fadeTimer=null;
+  var musicWanted=true, musicOn=false, inFilm=false, gestureArmed=false, fadeTimer=null, musicPausedByVqm=false, primed=false;
+  var filmTap=document.getElementById('film-tap');
+  function showFilmTap(on){ if(filmTap) filmTap.hidden=!on; }
   function setSoundBtn(){ if(!soundBtn) return; soundBtn.classList.toggle('is-on',musicOn); soundBtn.setAttribute('aria-pressed',musicOn?'true':'false'); soundBtn.querySelector('span').textContent=musicOn?'Tắt nhạc':'Bật nhạc'; }
-  function fadeTo(target,ms,done){ if(!filmAudio) return; clearInterval(fadeTimer); var from=filmAudio.volume, t0=performance.now(); fadeTimer=setInterval(function(){ var k=Math.min(1,(performance.now()-t0)/ms); filmAudio.volume=from+(target-from)*k; if(k>=1){ clearInterval(fadeTimer); if(done) done(); } },50); }
+  function fadeTo(target,ms,done){ if(!filmAudio) return; clearInterval(fadeTimer); var from=filmAudio.volume, t0=performance.now(); fadeTimer=setInterval(function(){ var k=Math.min(1,(performance.now()-t0)/ms); try{ filmAudio.volume=from+(target-from)*k; }catch(e){} if(k>=1){ clearInterval(fadeTimer); if(done) done(); } },50); }
   function startMusic(){
     if(!filmAudio||!musicWanted||musicOn) return;
     try{ filmAudio.volume=0; }catch(e){}
-    var pr=filmAudio.play();
     var vq=document.getElementById('vqm-video'); if(vq&&!vq.muted){ vq.muted=true; }
-    if(pr&&pr.then){ pr.then(function(){ musicOn=true; setSoundBtn(); fadeTo(.75,1400); }).catch(function(){ armGesture(); }); }
-    else { musicOn=true; setSoundBtn(); fadeTo(.75,1400); }
+    var pr=filmAudio.play();
+    function ok(){ musicOn=true; primed=true; setSoundBtn(); showFilmTap(false); fadeTo(.75,1400); }
+    if(pr&&pr.then){ pr.then(ok).catch(function(){ armGesture(); if(inFilm&&musicWanted) showFilmTap(true); }); } else ok();
   }
-  function stopMusic(){ if(!filmAudio||!musicOn) return; musicOn=false; setSoundBtn(); fadeTo(0,700,function(){ filmAudio.pause(); }); }
+  function stopMusic(){ showFilmTap(false); if(!filmAudio||!musicOn) return; musicOn=false; setSoundBtn(); fadeTo(0,700,function(){ filmAudio.pause(); }); }
   function onGesture(){ if(inFilm&&musicWanted&&!musicOn) startMusic(); }
-  function armGesture(){ if(gestureArmed) return; gestureArmed=true; ['pointerdown','touchend','keydown'].forEach(function(ev){ document.addEventListener(ev,onGesture,{passive:true}); }); }
+  function armGesture(){ if(gestureArmed) return; gestureArmed=true; ['pointerdown','touchend','click','keydown'].forEach(function(ev){ document.addEventListener(ev,onGesture,{passive:true}); }); }
+  /* first real tap or click anywhere unlocks audio for later automatic playback */
+  function primeMedia(){
+    if(primed||!filmAudio) return;
+    if(inFilm&&musicWanted&&!musicOn){ startMusic(); return; }
+    try{ filmAudio.volume=0; }catch(e){}
+    var pr=filmAudio.play();
+    if(pr&&pr.then){ pr.then(function(){ primed=true; if(!musicOn){ filmAudio.pause(); try{ filmAudio.currentTime=0; }catch(e){} } }).catch(function(){}); }
+  }
+  ['pointerdown','touchend','click','keydown'].forEach(function(ev){ document.addEventListener(ev,primeMedia,{passive:true}); });
   if(soundBtn){ soundBtn.addEventListener('click',function(){ if(musicOn){ musicWanted=false; stopMusic(); } else { musicWanted=true; startMusic(); } }); }
-  document.addEventListener('visibilitychange',function(){ if(document.hidden&&musicOn){ filmAudio.pause(); musicOn=false; setSoundBtn(); } });
+  if(filmTap){ filmTap.addEventListener('click',function(){ musicWanted=true; startMusic(); }); }
+  var filmStage=document.querySelector('.film__stage');
+  if(filmStage){ filmStage.addEventListener('pointerdown',function(){ if(inFilm&&musicWanted&&!musicOn) startMusic(); },{passive:true}); }
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden){ if(musicOn){ filmAudio.pause(); musicOn=false; setSoundBtn(); } }
+    else if(inFilm&&musicWanted&&!musicOn){ startMusic(); }
+  });
 
   if(film&&canvas&&canvas.getContext){
     var N=120, FW=720, FH=1280, frames=[], cur=-1, curShift=-1, lastP=0, W=0, H=0, ctx=canvas.getContext('2d');
@@ -938,31 +962,34 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
     updateFilm();
   }
 
-  /* 03: Vibanqm video, plays by itself with sound when it comes into view */
-  var vqmVideo=document.getElementById('vqm-video'), vqmSound=document.getElementById('vqm-sound');
+  /* 03: Vibanqm video, plays by itself; sound comes on when it is in view (after the first tap the browser requires) */
+  var vqmVideo=document.getElementById('vqm-video'), vqmSound=document.getElementById('vqm-sound'), vqmTap=document.getElementById('vqm-tap');
   if(vqmVideo){
     var vqmInView=false, vqmUserMuted=false, vqmFade=null;
-    function syncVqm(){ if(!vqmSound) return; var on=!vqmVideo.muted; vqmSound.classList.toggle('is-on',on); vqmSound.setAttribute('aria-pressed',on?'true':'false'); vqmSound.querySelector('span').textContent=on?'Tắt tiếng':'Bật tiếng'; }
+    function showVqmTap(on){ if(vqmTap) vqmTap.hidden=!on; }
+    function syncVqm(){ if(!vqmSound) return; var on=!vqmVideo.muted; vqmSound.classList.toggle('is-on',on); vqmSound.setAttribute('aria-pressed',on?'true':'false'); vqmSound.querySelector('span').textContent=on?'Tắt tiếng':'Bật tiếng'; if(on) showVqmTap(false); }
     function vqmFadeIn(){ clearInterval(vqmFade); try{ vqmVideo.volume=0; }catch(e){} var t0=performance.now(); vqmFade=setInterval(function(){ var k=Math.min(1,(performance.now()-t0)/1000); try{ vqmVideo.volume=k; }catch(e){} if(k>=1) clearInterval(vqmFade); },50); }
     function vqmPlayMuted(){ vqmVideo.muted=true; syncVqm(); var pr=vqmVideo.play(); if(pr&&pr.catch) pr.catch(function(){}); }
     function vqmPlayLoud(){
       if(vqmUserMuted){ vqmPlayMuted(); return; }
-      if(musicOn){ musicWanted=false; stopMusic(); }
+      if(musicOn){ musicWanted=false; musicPausedByVqm=true; stopMusic(); }
       vqmVideo.muted=false;
       var pr=vqmVideo.play();
-      if(pr&&pr.then){ pr.then(function(){ vqmFadeIn(); syncVqm(); }).catch(function(){ vqmPlayMuted(); armVqmGesture(); }); }
+      if(pr&&pr.then){ pr.then(function(){ vqmFadeIn(); syncVqm(); showVqmTap(false); }).catch(function(){ vqmPlayMuted(); if(vqmInView) showVqmTap(true); armVqmGesture(); }); }
       else { vqmFadeIn(); syncVqm(); }
     }
     var vqmArmed=false;
     function onVqmGesture(){ if(vqmInView&&vqmVideo.muted&&!vqmUserMuted) vqmPlayLoud(); }
-    function armVqmGesture(){ if(vqmArmed) return; vqmArmed=true; ['pointerdown','touchend','keydown'].forEach(function(ev){ document.addEventListener(ev,onVqmGesture,{passive:true}); }); }
+    function armVqmGesture(){ if(vqmArmed) return; vqmArmed=true; ['pointerdown','touchend','click','keydown'].forEach(function(ev){ document.addEventListener(ev,onVqmGesture,{passive:true}); }); }
     var qio=new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if(e.isIntersecting){ vqmInView=true; vqmPlayLoud(); }
-        else { vqmInView=false; if(!vqmVideo.muted){ vqmVideo.muted=true; syncVqm(); } }
+        else { vqmInView=false; showVqmTap(false); if(!vqmVideo.muted){ vqmVideo.muted=true; syncVqm(); } if(musicPausedByVqm){ musicPausedByVqm=false; musicWanted=true; if(inFilm) startMusic(); } }
       });
     },{threshold:0.35});
     qio.observe(vqmVideo);
+    if(vqmTap){ vqmTap.addEventListener('click',function(){ vqmUserMuted=false; vqmPlayLoud(); }); }
+    vqmVideo.addEventListener('pointerdown',function(){ if(vqmVideo.muted&&!vqmUserMuted) vqmPlayLoud(); },{passive:true});
     if(vqmSound){
       vqmSound.addEventListener('click',function(){
         if(vqmVideo.muted){ vqmUserMuted=false; vqmPlayLoud(); }
