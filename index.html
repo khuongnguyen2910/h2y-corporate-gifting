@@ -101,7 +101,11 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .brand__text{font-family:var(--f-display);font-weight:700;font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase}
 .nav__cta{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;border:1px solid var(--gold);color:var(--gold-2);padding:.6rem 1.2rem;transition:background .35s,color .35s}
 .nav__cta:hover{background:var(--gold);color:var(--navy)}
-@media(max-width:560px){.nav__cta{font-size:.68rem;padding:.5rem .85rem;letter-spacing:.1em}}
+.nav__actions{display:flex;align-items:center;gap:.6rem}
+.nav__cta--buy{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.nav__cta--buy:hover{background:var(--gold-2);border-color:var(--gold-2)}
+.lbl-short{display:none}
+@media(max-width:560px){.nav__cta{font-size:.66rem;padding:.5rem .7rem;letter-spacing:.08em}.nav__actions{gap:.45rem}.lbl-full{display:none}.lbl-short{display:inline}}
 
 /* ---------- bottom tab bar ---------- */
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:66;display:flex;justify-content:center;padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px);pointer-events:none}
@@ -390,6 +394,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .film__tap{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 @media(min-width:900px){.film__tap{bottom:calc(120px + env(safe-area-inset-bottom,0px))}}
 .vqm-tap{top:50%;transform:translate(-50%,-50%)}
+.fit-note{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;letter-spacing:.05em;color:var(--gold-2);font-weight:400}
+.fit-note svg{width:16px;height:16px;flex:none}
+.set--paper .fit-note,.set--vqm .fit-note{color:#8a6d2b}
 /* ---------- usage marquee ---------- */
 .usage{background:var(--paper);padding-block:clamp(1.4rem,3vw,2rem);display:grid;gap:14px;overflow:hidden}
 
@@ -440,7 +447,10 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
 <header class="nav" id="nav">
   <div class="container nav__inner">
     <a class="brand" href="#top" aria-label="H2Y JSC, về đầu trang"><span class="mark" aria-hidden="true"></span></a>
-    <a class="nav__cta" href="#lien-he">Liên hệ hợp tác</a>
+    <div class="nav__actions">
+      <a class="nav__cta nav__cta--buy" href="https://langdingpage-theta.vercel.app/" target="_blank" rel="noopener">Mua hàng</a>
+      <a class="nav__cta" href="#lien-he"><span class="lbl-full">Liên hệ hợp tác</span><span class="lbl-short">Liên hệ</span></a>
+    </div>
   </div>
 </header>
 <nav class="tabbar" aria-label="Điều hướng">
@@ -587,6 +597,7 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
       <p class="set__label rv"><b class="vip">VIP</b><span>Combo The Ritual Case</span></p>
       <h3 class="rc-title rv" style="--d:.1s"><span class="gold-text">The Ritual Case</span></h3>
       <p class="rc-sub rv" style="--d:.15s">Foundation Free Combo. Bộ phục hồi và bảo vệ ba bước, kèm khăn lụa Pharmesthetic. Cuộn chậm để mở hộp.</p>
+      <p class="fit-note rv" style="--d:.2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>Phù hợp với mọi loại da, đặc biệt là da nhạy cảm.</span></p>
     </div>
   </div>
   <div class="film" id="film">
@@ -647,6 +658,7 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
         <p class="set__label rv"><b>01</b><span>Bộ chăm sóc cơ bản</span></p>
         <h3 class="h3 rv" style="--d:.1s">Làm sạch &amp; khôi phục hàng rào bảo vệ da</h3>
         <p class="lead rv" style="--d:.2s">Chu trình làm sạch chuẩn Clinic làm sạch sâu nhưng vẫn giữ lại trọn vẹn độ ẩm và cân bằng pH lý tưởng, có thể linh hoạt trong cách dùng để đáp ứng nhu cầu làn da trong từng tình trạng, loại da cụ thể.</p>
+        <p class="fit-note rv" style="--d:.3s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>Phù hợp với mọi loại da, đặc biệt là da nhạy cảm.</span></p>
       </div>
     </div>
     <div class="pair">
