@@ -46,6 +46,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--navy);color:var(--paper);font-family:var(--f-body);font-weight:300;line-height:1.75;font-size:1rem;overflow-x:hidden;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
@@ -241,6 +242,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .band__idx{font-family:var(--f-display);font-weight:700;font-size:1.3rem;letter-spacing:.1em;color:var(--gold);display:grid;justify-items:center;gap:.6rem}
 .band__idx::after{content:"";width:1.6rem;height:1px;background:var(--gold)}
 .band__text{font-family:var(--f-display);font-weight:500;font-style:italic;font-size:clamp(1.45rem,2.8vw,2.5rem);line-height:1.38;max-width:28ch;color:#fff}
+.band__text{text-wrap:balance}
 .band__text strong{font-style:normal;font-weight:700;color:var(--gold-2)}
 
 /* ---------- collection ---------- */
@@ -433,6 +435,147 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .js .rv,.js .rv-img img,.js .rv-img video,.js .h-anim{opacity:1;transform:none;clip-path:none}
   .marquee__track{animation:none}
 }
+
+/* ================= TẾT 2027 (bổ sung theo hồ sơ v1.4) ================= */
+.tabbar__inner{grid-template-columns:repeat(5,1fr)}
+.tabbar a{font-size:.64rem}
+.vat{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.vat::before{content:"";width:.45rem;height:.45rem;background:var(--gold);transform:rotate(45deg)}
+.chapter--dark .vat{color:var(--mute-d)}
+
+/* matrix: need x budget */
+.mx-block{margin-top:clamp(3rem,7vw,5rem);display:grid;gap:1.6rem}
+.mx-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+@media(min-width:900px){.mx-wrap{margin-inline:0;padding-inline:0}}
+.mx{width:100%;min-width:700px;border-collapse:collapse;font-size:.92rem}
+.mx th,.mx td{text-align:left;vertical-align:top;padding:1rem 1rem 1rem 0;border-bottom:1px solid var(--line)}
+.mx thead th{border-bottom:1px solid var(--ink);padding-bottom:.9rem;vertical-align:bottom}
+.mx thead th b{display:block;font-family:var(--f-display);font-weight:700;font-size:1.35rem;line-height:1.1;color:var(--ink)}
+.mx thead th small{display:block;font-style:italic;font-size:.76rem;color:var(--mute);font-weight:400;margin-top:.3rem}
+.mx thead th:first-child{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:500;width:26%}
+.mx tbody th b{display:block;font-weight:600;color:var(--ink);font-size:.95rem;line-height:1.35}
+.mx tbody th small{display:block;color:var(--mute);font-size:.78rem;font-weight:400;margin-top:.2rem}
+.mx td{width:24.6%}
+.mx .none{color:#b9bcc4}
+.sc{display:flex;gap:.6rem;align-items:center;padding:.22rem 0;color:var(--ink);line-height:1.3;transition:color .3s}
+.sc i{font-style:normal;font-family:var(--f-num);font-weight:500;font-size:.8rem;background:var(--ink);color:var(--gold-2);min-width:1.9rem;text-align:center;padding:.12rem .3rem;letter-spacing:.02em;transition:background .3s,color .3s}
+.sc:hover{color:#8a6d2b}
+.sc:hover i{background:var(--gold);color:var(--ink)}
+.mx-hint{font-size:.78rem;color:var(--mute);display:flex;gap:.5rem;align-items:center}
+@media(min-width:900px){.mx-hint{display:none}}
+.notes{list-style:none;margin:0;padding:0;display:grid;gap:.8rem;max-width:62rem}
+.notes li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;color:#2c3650;font-size:.95rem;line-height:1.65}
+.notes li::before{content:"";width:.5rem;height:.5rem;background:var(--gold);transform:translateY(.55em) rotate(45deg)}
+.chapter--dark .notes li{color:rgba(255,255,255,.8)}
+
+/* collection rows */
+.coll{background:radial-gradient(90% 60% at 85% 0%,#1c2541 0%,var(--navy-2) 40%,var(--navy) 100%);color:#fff;padding-block:clamp(4rem,9vw,7rem)}
+.coll__head{display:grid;gap:1rem;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.coll__head .title{color:#fff}
+.coll__head .lead{color:rgba(255,255,255,.8);max-width:44rem}
+.grp{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.4rem 2rem;padding:2.4rem 0 .9rem;border-bottom:1px solid rgba(201,169,97,.45)}
+.grp:first-of-type{padding-top:0}
+.grp h3{font-family:var(--f-body);font-weight:500;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);line-height:1.5}
+.grp small{font-style:italic;font-size:.82rem;color:var(--mute-d)}
+.gset{display:grid;grid-template-columns:4.6rem minmax(0,1fr) auto;gap:1.1rem 1.8rem;align-items:center;padding:1.7rem 0;border-bottom:1px solid var(--line-d);transition:background .6s}
+.gset.flash{animation:flash 2s var(--ease)}
+@keyframes flash{0%,40%{background:rgba(201,169,97,.16)}100%{background:transparent}}
+.gset__no{aspect-ratio:1;display:grid;place-items:center;border:1px solid rgba(201,169,97,.6);background:linear-gradient(160deg,#18203a,#0b101e);font-family:var(--f-num);font-weight:600;font-size:2rem;color:var(--gold-2);font-variant-numeric:tabular-nums}
+.gset__body{display:grid;gap:.45rem;min-width:0}
+.gset__body h4{font-family:var(--f-display);font-weight:700;font-size:clamp(1.45rem,2.2vw,1.85rem);line-height:1.1;color:#fff}
+.gset__body p{color:rgba(255,255,255,.8);font-size:.95rem;line-height:1.6;max-width:40rem}
+.gset__in{font-size:.8rem;letter-spacing:.04em;color:var(--gold-2)}
+.gset__in b{font-weight:500;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:.68rem;margin-right:.4rem}
+.gset__price{display:grid;justify-items:end;gap:.2rem;text-align:right;font-variant-numeric:tabular-nums;min-width:11rem}
+.gset__price s{color:var(--mute-d);font-size:.86rem;text-decoration-color:rgba(255,255,255,.35)}
+.gset__save{font-size:.76rem;color:#d9c48f;letter-spacing:.04em}
+.gset__price strong{font-family:var(--f-body);font-weight:600;font-size:1.55rem;color:#fff;line-height:1.2;letter-spacing:.01em}
+.gset__price strong small{font-size:.6em;font-weight:400;color:var(--mute-d);margin-left:.25em}
+.gset__lbl{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.gset__add{margin-top:.55rem}
+@media(max-width:700px){
+  .gset{grid-template-columns:3.4rem minmax(0,1fr);align-items:start}
+  .gset__no{font-size:1.45rem}
+  .gset__price{grid-column:1/-1;justify-items:start;text-align:left;grid-template-columns:auto auto;align-items:baseline;column-gap:1rem;padding-top:.9rem;border-top:1px dashed var(--line-d);min-width:0}
+  .gset__lbl{grid-column:1/-1}
+  .gset__add{grid-column:1/-1;justify-self:start}
+}
+.coll__foot{margin-top:2rem}
+
+/* privileges */
+.perk{background:var(--paper-2);color:var(--ink);padding-block:clamp(4rem,10vw,8rem)}
+.perk .chapter__text{max-width:46rem}
+.perk .lead{color:#2c3650;max-width:44rem}
+.tiers-wrap{overflow-x:auto;margin-top:clamp(2.5rem,5vw,3.5rem)}
+.tiers{width:100%;min-width:560px;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.tiers th{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:500;text-align:left;padding:0 1rem .9rem 0;border-bottom:1px solid var(--ink);vertical-align:bottom}
+.tiers td{padding:1.25rem 1rem 1.25rem 0;border-bottom:1px solid rgba(201,169,97,.4);font-size:.95rem;color:var(--ink)}
+.tiers td:first-child{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#8a6d2b;font-weight:600;width:12%}
+.tiers td:nth-child(2){font-weight:600;width:28%}
+.tiers td:nth-child(3){font-family:var(--f-num);font-weight:500;font-size:1.6rem;width:18%}
+.tiers tr.is-cur td{background:rgba(201,169,97,.14)}
+.tiers tr.is-cur td:first-child{box-shadow:inset 3px 0 0 var(--gold);padding-left:.8rem}
+.perk__boxes{display:grid;gap:1rem;margin-top:clamp(2rem,4vw,3rem)}
+@media(min-width:800px){.perk__boxes{grid-template-columns:1fr 1fr}}
+.pbox{padding:clamp(1.4rem,3vw,2.2rem);display:grid;gap:.8rem;align-content:start}
+.pbox h4{font-family:var(--f-body);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.pbox p{font-size:1rem;line-height:1.7}
+.pbox--navy{background:var(--navy);color:rgba(255,255,255,.86)}
+.pbox--navy h4{color:var(--gold)}
+.pbox--navy strong{color:#fff;font-weight:600}
+.pbox--sand{background:#ece5d6;color:var(--ink)}
+.pbox--sand h4{color:#8a6d2b}
+.pbox--sand strong{font-weight:600}
+
+/* estimator */
+.est{margin-top:clamp(3.5rem,8vw,6rem);display:grid;gap:1.6rem}
+.est__head{display:grid;gap:.8rem}
+.est__head .h3{color:var(--ink);text-transform:none;letter-spacing:.01em;font-size:clamp(1.8rem,3vw,2.5rem)}
+.est__grid{display:grid;gap:clamp(1.5rem,3vw,2.5rem);align-items:start}
+@media(min-width:960px){.est__grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}}
+.est__list{display:grid;border-top:1px solid var(--ink)}
+.erow{display:grid;grid-template-columns:2.2rem minmax(0,1fr) auto;gap:.4rem 1rem;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.erow i{font-style:normal;font-family:var(--f-num);font-weight:500;font-size:.82rem;background:var(--ink);color:var(--gold-2);text-align:center;padding:.15rem 0}
+.erow__name{min-width:0;display:grid;line-height:1.3}
+.erow__name b{font-weight:500;font-size:.95rem;color:var(--ink)}
+.erow__name span{font-size:.78rem;color:var(--mute);font-variant-numeric:tabular-nums}
+.erow.has b{color:#7a5f22;font-weight:600}
+.step{display:flex;align-items:center;border:1px solid var(--line);background:#fff}
+.step button{width:2.2rem;height:2.4rem;font-size:1.1rem;color:var(--ink);transition:background .2s}
+.step button:hover{background:var(--paper-2)}
+.step input{width:4rem;height:2.4rem;border:0;border-inline:1px solid var(--line);text-align:center;font:inherit;font-size:.95rem;font-weight:500;color:var(--ink);background:#fff;font-variant-numeric:tabular-nums;-moz-appearance:textfield;appearance:textfield}
+.step input::-webkit-outer-spin-button,.step input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.est__sum{background:var(--navy);color:#fff;padding:clamp(1.4rem,3vw,2.2rem);display:grid;gap:1.1rem;font-variant-numeric:tabular-nums}
+@media(min-width:960px){.est__sum{position:sticky;top:calc(var(--nav-h) + env(safe-area-inset-top,0px) + 1rem)}}
+.est__badge{justify-self:start;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);background:var(--gold-2);padding:.3rem .6rem}
+.est__dl{display:grid;margin:0}
+.est__dl div{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line-d);font-size:.92rem}
+.est__dl dt{color:var(--mute-d)}
+.est__dl dd{margin:0;font-weight:500;text-align:right}
+.est__dl .neg dd{color:#e6cf93}
+.est__pay{display:grid;gap:.2rem;padding-top:.4rem}
+.est__pay span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.est__pay strong{font-family:var(--f-body);font-weight:600;font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.1;color:#fff}
+.est__pay small{font-size:.86rem;color:#d9c48f}
+.est__next{font-size:.84rem;color:rgba(255,255,255,.78);border-left:1px solid var(--gold);padding-left:.9rem;line-height:1.55}
+.est__acts{display:flex;flex-wrap:wrap;gap:.6rem}
+.est__acts .cbtn{background:transparent}
+.est__acts .cbtn--fill{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.est__acts .cbtn--fill:hover{background:var(--gold-2);border-color:var(--gold-2)}
+.est__msg{font-size:.78rem;color:var(--mute-d);min-height:1.2em}
+
+/* steps */
+.steps{list-style:none;margin:clamp(2rem,4vw,3rem) 0 0;padding:0;display:grid;border-top:1px solid rgba(201,169,97,.5);max-width:58rem}
+.steps li{display:grid;grid-template-columns:4rem minmax(0,1fr);gap:1rem;padding:1.4rem 0;border-bottom:1px solid rgba(201,169,97,.5)}
+.steps li>span{font-family:var(--f-num);font-weight:600;font-size:2.1rem;line-height:1;color:var(--gold)}
+.steps b{display:block;font-weight:600;font-size:1.05rem;color:var(--ink);margin-bottom:.25rem}
+.steps p{color:#4a5368;font-size:.95rem;line-height:1.6}
+.invite{margin-top:clamp(2.5rem,5vw,3.5rem);max-width:58rem;padding-left:clamp(1.2rem,3vw,2rem);border-left:2px solid var(--gold);display:grid;gap:1rem}
+.invite p{font-family:var(--f-display);font-weight:600;font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.35;color:var(--ink)}
+.invite small{font-size:.8rem;color:var(--mute)}
+.invite .nav__cta{justify-self:start;color:var(--ink);border-color:var(--ink)}
+.invite .nav__cta:hover{background:var(--ink);color:#fff}
+
 </style>
 <script>
 document.documentElement.classList.add('js');
@@ -457,8 +600,9 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
   <div class="tabbar__inner">
     <a href="#he-sinh-thai" data-nav><b>I</b><span>Hệ sinh thái</span></a>
     <a href="#triet-ly" data-nav><b>II</b><span>Triết lý</span></a>
-    <a href="#qua-tang" data-nav><b>III</b><span>Quà tặng</span></a>
-    <a href="#lien-he" data-nav><b>IV</b><span>Liên hệ</span></a>
+    <a href="#qua-tang" data-nav><b>III</b><span>Quà Tết</span></a>
+    <a href="#dac-quyen" data-nav><b>IV</b><span>Đặc quyền</span></a>
+    <a href="#lien-he" data-nav><b>V</b><span>Liên hệ</span></a>
   </div>
 </nav>
 
@@ -570,150 +714,215 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
   <div class="band__shade"></div>
   <div class="container band__inner">
     <p class="band__idx rv">III</p>
-    <p class="band__text rv" style="--d:.15s">Khi tặng một sản phẩm từ <strong>GIVEHADA x Pharmesthetic</strong>, doanh nghiệp đang trao đi sự thấu cảm sâu sắc, lời nhắn nhủ chăm sóc bản thân và lời chúc an yên thiết thực nhất đến đối tác và đội ngũ.</p>
+    <p class="band__text rv" style="--d:.15s">Khi tặng một sản phẩm từ <strong>GIVEHADA x Pharmesthetic</strong>, doanh nghiệp đang trao đi sự thấu cảm sâu sắc, lời nhắn nhủ chăm sóc bản thân và lời chúc an yên thiết thực nhất đến đối tác và&nbsp;đội&nbsp;ngũ.</p>
   </div>
 </section>
 
-<!-- ============ BỘ SƯU TẬP ============ -->
-<section class="coll-head" id="qua-tang" data-group="qua-tang">
-  <div class="container coll-head__grid">
-    <div>
-      <p class="eyebrow rv">GIVEHADA <span class="dot">×</span> Pharmesthetic</p>
-      <h2 class="title rv" style="--d:.1s">Bộ sưu tập quà tặng</h2>
+<!-- ============ 04 QUÀ TẾT 2027 ============ -->
+<section class="chapter chapter--light" id="qua-tang" data-group="qua-tang">
+  <div class="container chapter__grid">
+    <div class="chapter__text">
+      <div class="chapter__head rv">
+        <span class="num" aria-hidden="true">04</span>
+        <div><h2 class="title">Quà Tết 2027</h2><p class="eyebrow">Chọn quà theo ngân sách và nhu cầu</p></div>
+      </div>
+      <p class="lead rv" style="--d:.15s"><strong>Mười set GIVEHADA x Pharmesthetic</strong> trong hộp quà Tết thiết kế mới, dùng được cho cả nam và nữ. Chọn theo ngân sách cho mỗi người nhận, rồi theo nhu cầu da.</p>
+      <p class="vat rv" style="--d:.25s">Bản dành cho doanh nghiệp · Giá đã gồm VAT</p>
     </div>
-    <nav class="index rv" style="--d:.2s" aria-label="Danh mục quà tặng">
-      <a href="#ritual"><b>VIP</b>Combo The Ritual Case</a>
-      <a href="#set-1"><b>01</b>Bộ chăm sóc cơ bản</a>
-      <a href="#set-3"><b>02</b>Kem tay cao cấp</a>
-      <a href="#set-6"><b>03</b>Vibanqm Lotion</a>
-    </nav>
+    <figure class="media rv-img bleed-m"><img src="assets/vqm-3.webp" alt="Những tuýp VIBANQM Lotion, sản phẩm có mặt trong chín trên mười set quà Tết" loading="lazy" decoding="async"></figure>
+  </div>
+
+  <div class="container mx-block">
+    <p class="mx-hint">Vuốt ngang để xem đủ ba mức ngân sách</p>
+    <div class="mx-wrap rv">
+      <table class="mx">
+        <caption class="sr">Gợi ý set quà theo nhu cầu của người nhận và ngân sách mỗi phần quà</caption>
+        <thead>
+          <tr><th scope="col">Nhu cầu của người nhận</th><th scope="col"><b>Dưới 1,7 triệu</b><small>Gợi ý: nhân sự chủ chốt</small></th><th scope="col"><b>1,7 đến 3 triệu</b><small>Gợi ý: lãnh đạo, quản lý</small></th><th scope="col"><b>Trên 3 triệu</b><small>Gợi ý: đối tác, khách VIP</small></th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row"><b>Làm sạch, cân bằng da</b><small>Chưa rõ loại da người nhận</small></th><td><a class="sc" href="#set-01" data-flash="set-01"><i>01</i>Khởi Đầu Sạch Dịu</a><a class="sc" href="#set-03" data-flash="set-03"><i>03</i>Ẩm Căng Mọi Lúc</a></td><td><a class="sc" href="#set-06" data-flash="set-06"><i>06</i>Chu Trình Sáng Tối</a></td><td><span class="none" aria-label="Không có set phù hợp">·</span></td></tr>
+          <tr><th scope="row"><b>Dịu da, kiềm dầu</b><small>Da dầu, da dễ kích ứng</small></th><td><a class="sc" href="#set-02" data-flash="set-02"><i>02</i>Dịu Da Kiềm Dầu</a></td><td><a class="sc" href="#set-05" data-flash="set-05"><i>05</i>Mịn Sáng Qua Đêm</a><a class="sc" href="#set-06" data-flash="set-06"><i>06</i>Chu Trình Sáng Tối</a><a class="sc" href="#set-07" data-flash="set-07"><i>07</i>Dịu Nhẹ Ngày Nắng</a></td><td><a class="sc" href="#set-08" data-flash="set-08"><i>08</i>Đều Màu Cả Ngày</a><a class="sc" href="#set-09" data-flash="set-09"><i>09</i>Sáng Da Mờ Thâm</a><a class="sc" href="#set-10" data-flash="set-10"><i>10</i>Bảo Vệ Trọn Vẹn</a></td></tr>
+          <tr><th scope="row"><b>Cấp ẩm, căng mịn</b><small>Người ngồi phòng máy lạnh</small></th><td><a class="sc" href="#set-03" data-flash="set-03"><i>03</i>Ẩm Căng Mọi Lúc</a></td><td><a class="sc" href="#set-04" data-flash="set-04"><i>04</i>Lá Chắn Nắng</a></td><td><a class="sc" href="#set-08" data-flash="set-08"><i>08</i>Đều Màu Cả Ngày</a><a class="sc" href="#set-10" data-flash="set-10"><i>10</i>Bảo Vệ Trọn Vẹn</a></td></tr>
+          <tr><th scope="row"><b>Chống nắng hằng ngày</b><small>Người hay ra ngoài trời</small></th><td><span class="none" aria-label="Không có set phù hợp">·</span></td><td><a class="sc" href="#set-04" data-flash="set-04"><i>04</i>Lá Chắn Nắng</a><a class="sc" href="#set-07" data-flash="set-07"><i>07</i>Dịu Nhẹ Ngày Nắng</a></td><td><a class="sc" href="#set-08" data-flash="set-08"><i>08</i>Đều Màu Cả Ngày</a><a class="sc" href="#set-10" data-flash="set-10"><i>10</i>Bảo Vệ Trọn Vẹn</a></td></tr>
+          <tr><th scope="row"><b>Mịn da, lỗ chân lông</b><small>Da dầu, da sần</small></th><td><span class="none" aria-label="Không có set phù hợp">·</span></td><td><a class="sc" href="#set-05" data-flash="set-05"><i>05</i>Mịn Sáng Qua Đêm</a></td><td><span class="none" aria-label="Không có set phù hợp">·</span></td></tr>
+          <tr><th scope="row"><b>Sáng da, mờ thâm sạm</b><small>Da xỉn màu, có vết thâm</small></th><td><span class="none" aria-label="Không có set phù hợp">·</span></td><td><a class="sc" href="#set-05" data-flash="set-05"><i>05</i>Mịn Sáng Qua Đêm</a></td><td><a class="sc" href="#set-09" data-flash="set-09"><i>09</i>Sáng Da Mờ Thâm</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="notes rv">
+      <li>Chưa rõ loại da người nhận: chọn set có Tutorial Kit (01, 03, 06), gồm cả sữa rửa mặt cho da khô và gel rửa mặt cho da dầu; hoặc set 10 với 2 kết cấu kem chống nắng.</li>
+      <li>Set 05 có sáp peel AHA, BHA, PHA: dùng buổi tối, 1 đến 3 lần mỗi tuần tuỳ loại da, không dùng khi da đang kích ứng.</li>
+      <li>Ngân sách tính theo giá đối tác mỗi set, đã gồm VAT, thấp hơn giá niêm yết từ 440.000 đến 1.750.000 đ. Đơn trên 20 triệu được chiết khấu thêm 5 đến 15% (mục 05).</li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ VIP THE RITUAL CASE ============ -->
-<section class="set set--ritual" id="ritual" data-group="qua-tang">
+<!-- ============ BỘ SƯU TẬP 10 SET ============ -->
+<section class="coll" id="bo-suu-tap" data-group="qua-tang" aria-labelledby="coll-title">
   <div class="container">
-    <div class="rc-head">
-      <p class="set__label rv"><b class="vip">VIP</b><span>Combo The Ritual Case</span></p>
-      <h3 class="rc-title rv" style="--d:.1s"><span class="gold-text">The Ritual Case</span></h3>
-      <p class="rc-sub rv" style="--d:.15s">Foundation Free Combo. Bộ phục hồi và bảo vệ ba bước, kèm khăn lụa Pharmesthetic. Cuộn chậm để mở hộp.</p>
-      <p class="fit-note rv" style="--d:.2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>Phù hợp với mọi loại da, đặc biệt là da nhạy cảm.</span></p>
+    <div class="coll__head">
+      <p class="eyebrow rv">Bộ sưu tập <span class="dot">·</span> set 01 đến 10</p>
+      <h2 class="title rv" style="--d:.1s" id="coll-title">Mười set quà Tết</h2>
+      <p class="lead rv" style="--d:.2s">Mỗi set ghi rõ công dụng, sản phẩm bên trong, giá niêm yết và giá đối tác doanh nghiệp. Bấm "Đưa vào dự toán" để tính nhanh tổng đơn và mức chiết khấu.</p>
     </div>
-  </div>
-  <div class="film" id="film">
-    <div class="film__stage">
-      <canvas class="film__canvas" id="film-canvas" aria-hidden="true"></canvas>
-      <noscript><img class="film__fallback" src="assets/film/f001.webp" alt="The Ritual Case trên bàn gỗ cạnh ly whisky"></noscript>
-      <div class="film__shade" aria-hidden="true"></div>
-      <div class="film__shade film__shade--side" id="film-shade-side" aria-hidden="true"></div>
-      <div class="film__caps" id="film-caps" aria-live="polite">
-        <div class="cap" data-from="0.40" data-to="0.53"><span class="cap__idx">Lớp 1</span><h4><em>“Wherever I go, I remain”</em></h4><p>Có vô vàn xu hướng không ngừng biến đổi, bản sắc cá nhân vẫn là điều định danh mỗi con người giữa thế giới luôn dịch chuyển.</p></div>
-        <div class="cap" data-from="0.53" data-to="0.75"><span class="cap__idx">Lớp 2</span><h4>Mở hộp</h4><p>Ba bước phục hồi và bảo vệ nằm gọn trong một ngăn. Ngăn dưới dành cho khăn lụa Pharmesthetic, phần duy nhất không dành cho làn da mà dành cho phong thái của người nhận.</p></div>
-        <div class="cap" data-from="0.75" data-to="0.89"><span class="cap__idx">Lớp 3</span><h4>Ba bước</h4><ul><li><b>I</b><span><strong>Vibanqm Lotion 30ml.</strong> Làm dịu, khóa ẩm.</span></li><li><b>II</b><span><strong>Finish Lotion SPF50+ PA+++ 20g.</strong> Chống nắng.</span></li><li><b>III</b><span><strong>Final Balm SPF50+ PA+++ 30ml.</strong> Bảo vệ, nâng tông.</span></li></ul></div>
-        <div class="cap" data-from="0.89" data-to="1.01"><span class="cap__idx">Dư âm</span><h4>Một món quà nên để lại dư âm</h4><p>Như một bản nhạc hay. Chậm rãi, và đáng nhớ.</p></div>
+    <div class="grp rv"><h3>Ngân sách dưới 1,7 triệu / phần quà</h3><small>Gợi ý: nhân sự chủ chốt</small></div>
+    <article class="gset rv" id="set-01">
+      <div class="gset__no" aria-hidden="true">01</div>
+      <div class="gset__body">
+        <h4><span class="sr">Set 01. </span>Khởi Đầu Sạch Dịu</h4>
+        <p>Sữa rửa mặt cho da khô, gel rửa mặt cho da dầu và tinh dưỡng cân bằng: hợp với mọi người nhận.</p>
+        <p class="gset__in"><b>Gồm</b>Conapidil Tutorial Kit (3 × 30 ml)</p>
       </div>
-      <div class="film__hud">
-        <button type="button" class="cbtn" id="film-sound" aria-pressed="false"><svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9l5 6M21 9l-5 6"/></svg><span>Bật nhạc</span></button>
+      <div class="gset__price">
+        <span class="gset__lbl">Giá đối tác doanh nghiệp</span>
+        <strong>1.100.000<small>đ</small></strong>
+        <s aria-label="Giá niêm yết 1.540.000 đồng">1.540.000 đ</s>
+        <span class="gset__save">Tiết kiệm 440.000 đ</span>
+        <button type="button" class="cbtn gset__add" data-pick="1">Đưa vào dự toán</button>
       </div>
-      <button type="button" class="tap-pill film__tap" id="film-tap" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><span>Chạm để bật nhạc</span></button>
-      <div class="film__rail" aria-hidden="true"><i id="film-rail"></i></div>
-      <p class="film__cue" id="film-cue" aria-hidden="true"><span>Cuộn để mở hộp</span><i></i></p>
-    </div>
-  </div>
-  <audio id="film-audio" src="assets/ritual-case-audio.mp3" loop preload="none"></audio>
-  <div class="container rc-after">
-    <blockquote class="rc-quote rv">
-      <em>“Wherever I go, I remain”</em>
-      <p>Có vô vàn xu hướng không ngừng biến đổi, bản sắc cá nhân vẫn là điều định danh mỗi con người giữa thế giới luôn dịch chuyển. Làn da cũng mang ngôn ngữ riêng của nó, lặng lẽ kể nên câu chuyện về cách bạn sống, cảm nhận và hiện diện với cuộc đời.</p>
-      <p>Một làn da khỏe mạnh và cân bằng không chỉ phản chiếu vẻ đẹp bên ngoài, mà còn là sự hài hòa giữa cơ thể, cảm xúc và nội tâm. Chính sự hòa hợp ấy tạo nên nguồn năng lượng giúp mỗi người tự tin hiện diện với phiên bản độc bản và rạng rỡ nhất của chính mình, trong mọi khoảnh khắc, dù ở bất cứ nơi đâu.</p>
-      <cite>Thông điệp in trong nắp hộp, GIVEHADA x Pharmesthetic</cite>
-    </blockquote>
-  </div>
-  <div class="container rc-facts">
-    <div class="fact rv"><h5>Trong hộp</h5><ul><li>Vibanqm Lotion 30ml</li><li>Finish Lotion SPF50+ PA+++ 20g</li><li>Final Balm SPF50+ PA+++ 30ml</li><li>Khăn lụa Pharmesthetic</li></ul></div>
-    <div class="fact rv" style="--d:.1s"><h5>Dành cho</h5><p>Mọi làn da, đặc biệt da nhạy cảm và da đang phục hồi sau peel, laser, vi kim. Làm dịu cảm giác ửng đỏ, khóa ẩm, củng cố hàng rào bảo vệ và hỗ trợ hạn chế vết thâm sau viêm.</p></div>
-    <div class="fact rv" style="--d:.2s"><h5>Cách dùng</h5><p>Sau làm sạch và cân bằng, thoa Vibanqm Lotion và vỗ nhẹ cho thấm, tiếp theo Finish Lotion để chống nắng, cuối cùng một lượng nhỏ Final Balm. Tỉ lệ ba sản phẩm điều chỉnh theo tông da.</p></div>
-  </div>
-  <div class="marquee marquee--tiles rc-strip" aria-label="Bộ ảnh The Ritual Case">
-    <div class="marquee__track" style="--speed:95s">
-      <div class="marquee__group">
-        <img src="assets/rc-shot-1.webp" alt="" decoding="async"><img src="assets/rc-shot-2.webp" alt="" decoding="async"><img src="assets/rc-shot-3.webp" alt="" decoding="async"><img src="assets/rc-shot-4.webp" alt="" decoding="async"><img src="assets/rc-shot-5.webp" alt="" decoding="async"><img src="assets/rc-shot-6.webp" alt="" decoding="async"><img src="assets/rc-shot-7.webp" alt="" decoding="async"><img src="assets/rc-vinyl.webp" alt="" decoding="async"><img src="assets/rc-lamp.webp" alt="" decoding="async"><img src="assets/rc-side.webp" alt="" decoding="async">
+    </article>
+    <article class="gset rv" id="set-02">
+      <div class="gset__no" aria-hidden="true">02</div>
+      <div class="gset__body">
+        <h4><span class="sr">Set 02. </span>Dịu Da Kiềm Dầu</h4>
+        <p>Kem dưỡng bước cuối, sáng và tối: làm dịu da đỏ, kích ứng, kiểm soát dầu nhờn, nâng tông tự nhiên.</p>
+        <p class="gset__in"><b>Gồm</b>VIBANQM Lotion</p>
       </div>
-      <div class="marquee__group" aria-hidden="true">
-        <img src="assets/rc-shot-1.webp" alt="" decoding="async"><img src="assets/rc-shot-2.webp" alt="" decoding="async"><img src="assets/rc-shot-3.webp" alt="" decoding="async"><img src="assets/rc-shot-4.webp" alt="" decoding="async"><img src="assets/rc-shot-5.webp" alt="" decoding="async"><img src="assets/rc-shot-6.webp" alt="" decoding="async"><img src="assets/rc-shot-7.webp" alt="" decoding="async"><img src="assets/rc-vinyl.webp" alt="" decoding="async"><img src="assets/rc-lamp.webp" alt="" decoding="async"><img src="assets/rc-side.webp" alt="" decoding="async">
+      <div class="gset__price">
+        <span class="gset__lbl">Giá đối tác doanh nghiệp</span>
+        <strong>1.450.000<small>đ</small></strong>
+        <s aria-label="Giá niêm yết 2.060.000 đồng">2.060.000 đ</s>
+        <span class="gset__save">Tiết kiệm 610.000 đ</span>
+        <button type="button" class="cbtn gset__add" data-pick="2">Đưa vào dự toán</button>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CÁC SẢN PHẨM KHÁC ============ -->
-<section class="others-head" data-group="qua-tang" aria-label="Các sản phẩm khác">
-  <div class="container"><p class="eyebrow rv">Các sản phẩm khác</p></div>
-</section>
-<section class="set set--blue" id="set-1" data-group="qua-tang">
-  <div class="container">
-    <div class="set__grid">
-      <figure class="set__media rv-img bleed-m" data-px="0.05"><img src="assets/set1-hero.webp" alt="Bộ làm sạch Lunapidil: Gel Polishing, Lotion Polishing và Gel Starter với bọt mịn" loading="lazy" decoding="async"></figure>
-      <div class="set__text">
-        <p class="set__label rv"><b>01</b><span>Bộ chăm sóc cơ bản</span></p>
-        <h3 class="h3 rv" style="--d:.1s">Làm sạch &amp; khôi phục hàng rào bảo vệ da</h3>
-        <p class="lead rv" style="--d:.2s">Chu trình làm sạch chuẩn Clinic làm sạch sâu nhưng vẫn giữ lại trọn vẹn độ ẩm và cân bằng pH lý tưởng, có thể linh hoạt trong cách dùng để đáp ứng nhu cầu làn da trong từng tình trạng, loại da cụ thể.</p>
-        <p class="fit-note rv" style="--d:.3s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>Phù hợp với mọi loại da, đặc biệt là da nhạy cảm.</span></p>
+    </article>
+    <article class="gset rv" id="set-03">
+      <div class="gset__no" aria-hidden="true">03</div>
+      <div class="gset__body">
+        <h4><span class="sr">Set 03. </span>Ẩm Căng Mọi Lúc</h4>
+        <p>Làm sạch, cân bằng với Tutorial Kit; xịt dưỡng 2 lớp cấp ẩm tức thì cho da căng mịn, xịt được mọi lúc.</p>
+        <p class="gset__in"><b>Gồm</b>Tutorial Kit + aXENDA Mahorosa Cream Mist</p>
       </div>
-    </div>
-    <div class="pair">
-      <div class="rv" style="--d:.1s"><figure class="card tilt"><img src="assets/set1-full.webp" alt="Bộ chăm sóc cơ bản bản Fullsize" loading="lazy" decoding="async"><figcaption>Fullsize</figcaption></figure></div>
-      <div class="rv" style="--d:.25s"><figure class="card tilt"><img src="assets/set1-travel.webp" alt="Bộ chăm sóc cơ bản bản Travel size" loading="lazy" decoding="async"><figcaption>Travel size</figcaption></figure></div>
-    </div>
-  </div>
-</section>
-
-<section class="set set--night" id="set-3" data-group="qua-tang">
-  <div class="container set__grid">
-    <div class="grid2 rv" style="--d:.1s">
-      <div class="tile"><img src="assets/set3-d1.webp" alt="Chi tiết bao bì Vergesslichkeit Oblivioner, tên sản phẩm in nhiều ngôn ngữ" loading="lazy" decoding="async"></div>
-      <div class="tile"><img src="assets/set3-d2.webp" alt="Chi tiết họa tiết trên tuýp kem tay" loading="lazy" decoding="async"></div>
-      <div class="tile"><img src="assets/set3-d3.webp" alt="Chi tiết chữ in nổi trên hộp kem tay" loading="lazy" decoding="async"></div>
-      <div class="tile"><img src="assets/set3-d4.webp" alt="Tuýp kem tay Vergesslichkeit Oblivioner" loading="lazy" decoding="async"></div>
-    </div>
-    <div class="set__text">
-      <p class="set__label rv"><b>02</b><span>Kem tay cao cấp gói trọn nghệ thuật hương dưỡng</span></p>
-      <h3 class="h3 rv" style="--d:.1s">Kem dưỡng tay CEO</h3>
-      <p class="lead rv" style="--d:.2s">Một khái niệm độc đáo được khách hàng ưu ái dành riêng cho dòng chăm sóc đôi tay Vergesslichkeit Oblivioner. Nơi nghệ thuật hương thơm tinh tế giao hòa cùng cảm xúc, nhẹ nhàng xoa dịu những áp lực và hoàn thiện phong thái chỉn chu, thu hút của người sử dụng.</p>
-      <figure class="set__media set__media--tall rv-img" style="--d:.2s"><img src="assets/set3-box.webp" alt="Hộp kem dưỡng tay Vergesslichkeit Oblivioner trên nền tối" loading="lazy" decoding="async"></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 06 VIBANQM LOTION ============ -->
-<section class="set set--vqm" id="set-6" data-group="qua-tang">
-  <div class="container">
-    <div class="set__grid">
-      <figure class="vqm-media rv-img bleed-m" data-px="0.04">
-        <video id="vqm-video" class="vqm-video" src="assets/vqm-lotion.mp4" poster="assets/vqm-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Video Vibanqm Lotion"></video>
-        <button type="button" class="tap-pill vqm-tap" id="vqm-tap" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><span>Chạm để bật tiếng</span></button>
-        <button type="button" class="cbtn vqm-sound" id="vqm-sound" aria-pressed="false"><svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M16 9l5 6M21 9l-5 6"/></svg><span>Bật tiếng</span></button>
-      </figure>
-      <div class="set__text">
-        <p class="set__label rv"><b>03</b><span>Vibanqm Lotion</span></p>
-        <h3 class="h3 rv" style="--d:.1s">Vibanqm Lotion</h3>
-        <p class="vqm-kicker rv" style="--d:.12s"><span>Vibanquentmanka</span><span class="dot">·</span><span>Kem dưỡng bảo vệ và phục hồi làn da</span><span class="dot">·</span><span>30ml</span></p>
-        <p class="lead rv" style="--d:.2s"><strong>Một lớp màng ẩm mỏng nhẹ.</strong> Che chắn làn da trước bụi mịn và hanh khô, củng cố hàng rào bảo vệ mỗi sáng và tối. Đánh thức nét tươi tắn cho làn da mệt mỏi.</p>
-        <dl class="specs rv" style="--d:.3s">
-          <dt>Dành cho</dt><dd>Mọi loại da, kể cả da dầu, da mụn, da mỏng và da nhạy cảm với thời tiết.</dd>
-          <dt>Cách dùng</dt><dd>Sau bước làm sạch và cân bằng, thoa lượng vừa đủ lên mặt và cổ, vỗ nhẹ cho thấm. Dùng sáng và tối.</dd>
-          <dt>Công dụng</dt><dd>Dưỡng da, giúp làm trắng da, dưỡng ẩm da, hỗ trợ làm giảm nếp nhăn trên da, hỗ trợ làm dịu làn da khô, giúp da mềm mịn.<small>Theo hồ sơ công bố mỹ phẩm Vibanquentmanka Lotion</small></dd>
-        </dl>
-        <ul class="chips rv" style="--d:.4s" aria-label="Thành phần nổi bật"><li>AMISCARE®</li><li>PDRN</li><li>Collagen thủy phân</li><li>Caramel</li><li>Niacinamide</li><li>Adenosine</li></ul>
+      <div class="gset__price">
+        <span class="gset__lbl">Giá đối tác doanh nghiệp</span>
+        <strong>1.640.000<small>đ</small></strong>
+        <s aria-label="Giá niêm yết 2.220.000 đồng">2.220.000 đ</s>
+        <span class="gset__save">Tiết kiệm 580.000 đ</span>
+        <button type="button" class="cbtn gset__add" data-pick="3">Đưa vào dự toán</button>
       </div>
-    </div>
-    <div class="vqm-gallery rv" style="--d:.1s">
-      <figure><img src="assets/vqm-1.webp" alt="Hình ảnh nghệ thuật trong phim Vibanqm Lotion" loading="lazy" decoding="async"></figure>
-      <figure><img src="assets/vqm-2.webp" alt="Tuýp Vibanqm Lotion trên nền tối" loading="lazy" decoding="async"></figure>
-      <figure><img src="assets/vqm-3.webp" alt="Nhiều tuýp Vibanqm Lotion xếp chồng" loading="lazy" decoding="async"></figure>
-      <figure><img src="assets/vqm-4.webp" alt="Tuýp và hộp Vibanqm Lotion" loading="lazy" decoding="async"></figure>
-      <figure><img src="assets/vqm-5.webp" alt="Vibanqm Lotion cạnh túi sơ cứu" loading="lazy" decoding="async"></figure>
-    </div>
+    </article>
+    <div class="grp rv"><h3>Ngân sách 1,7 đến 3 triệu / phần quà</h3><small>Gợi ý: lãnh đạo, quản lý</small></div>
+    <article class="gset rv" id="set-04">
+      <div class="gset__no" aria-hidden="true">04</div>
+      <div class="gset__body">
+        <h4><span class="sr">Set 04. </span>Lá Chắn Nắng</h4>
+        <p>Kem chống nắng SPF50+/PA+++: chắn UV và ánh sáng xanh, đều màu da tức thì, giữ ẩm 24 giờ.</p>
+        <p class="gset__in"><b>Gồm</b>Final Touch · Final Balm</p>
+      </div>
+      <div class="gset__price">
+        <span class="gset__lbl">Giá đối tác doanh nghiệp</span>
+        <strong>1.700.000<small>đ</small></strong>
+        <s aria-label="Giá niêm yết 2.450.000 đồng">2.450.000 đ</s>
+        <span class="gset__save">Tiết kiệm 750.000 đ</span>
+        <button type="button" class="cbtn gset__add" data-pick="4">Đưa vào dự toán</button>
+      </div>
+    </article>
+    <article class="gset rv" id="set-05">
+      <div class="gset__no" aria-hidden="true">05</div>
+      <div class="gset__body">
+        <h4><span class="sr">Set 05. </span>Mịn Sáng Qua Đêm</h4>
+        <p>Sáp peel buổi tối giúp da mịn, sáng, lỗ chân lông thông thoáng; kem VIBANQM làm dịu, kiềm dầu.</p>
+        <p class="gset__in"><b>Gồm</b>VIBANQM Lotion + aXENDA Routiner</p>
+      </div>
+      <div class="gset__price">
+        <span class="gset__lbl">Giá đối tác doanh nghiệp</span>
+        <strong>2.280.000<small>đ</small></strong>
+        <s aria-label="Giá niêm yết 3.300.000 đồng">3.300.000 đ</s>
+        <span class="gset__save">Tiết kiệm 1.020.000 đ</span>
+        <button type="button" class="cbtn gset__add" data-pick="5">Đưa vào dự toán</button>
+      </div>
+    </article>
+    <article class="gset rv" id="set-06">
+      <div class="gset__no" aria-hidden="true">06</div>
+      <div class="gset__body">
+        <h4><span class="sr">Set 06. </span>Chu Trình Sáng Tối</h4>
+        <p>Đủ các bước sáng và tối: làm sạch, cân bằng, dưỡng dịu, kiềm dầu. Gọn cho người bận rộn.</p>
+        <p class="gset__in"><b>Gồm</b>Tutorial Kit + VIBANQM Lotion</p>
+      </div>
+      <div class="gset__price">
+        <span class="gset__lbl">Giá đối tác doanh nghiệp</span>
+        <strong>2.550.000<small>đ</small></strong>
+        <s aria-label="Giá niêm yết 3.600.000 đồng">3.600.000 đ</s>
+        <span class="gset__save">Tiết kiệm 1.050.000 đ</span>
+        <button type="button" class="cbtn gset__add" data-pick="6">Đưa vào dự toán</button>
+      </div>
+    </article>
+    <article class="gset rv" id="set-07">
+      <div class="gset__no" aria-hidden="true">07</div>
+      <div class="gset__body">
+        <h4><span class="sr">Set 07. </span>Dịu Nhẹ Ngày Nắng</h4>
+        <p>Kem VIBANQM làm dịu, kiềm dầu; kem chống nắng SPF50+ chất nhẹ cho da nhạy cảm, ngày nắng nóng.</p>
+        <p class="gset__in"><b>Gồm</b>VIBANQM Lotion + Finish Lotion</p>
+      </div>
+      <div class="gset__price">
+        <span class="gset__lbl">Giá đối tác doanh nghiệp</span>
+        <strong>2.610.000<small>đ</small></strong>
+        <s aria-label="Giá niêm yết 3.610.000 đồng">3.610.000 đ</s>
+        <span class="gset__save">Tiết kiệm 1.000.000 đ</span>
+        <button type="button" class="cbtn gset__add" data-pick="7">Đưa vào dự toán</button>
+      </div>
+    </article>
+    <div class="grp rv"><h3>Ngân sách trên 3 triệu / phần quà</h3><small>Gợi ý: đối tác, khách VIP</small></div>
+    <article class="gset rv" id="set-08">
+      <div class="gset__no" aria-hidden="true">08</div>
+      <div class="gset__body">
+        <h4><span class="sr">Set 08. </span>Đều Màu Cả Ngày</h4>
+        <p>Kem VIBANQM làm dịu, nâng tông; kem chống nắng SPF50+ dạng balm đều màu tức thì, giữ ẩm 24 giờ.</p>
+        <p class="gset__in"><b>Gồm</b>VIBANQM Lotion + Final Balm</p>
+      </div>
+      <div class="gset__price">
+        <span class="gset__lbl">Giá đối tác doanh nghiệp</span>
+        <strong>3.150.000<small>đ</small></strong>
+        <s aria-label="Giá niêm yết 4.510.000 đồng">4.510.000 đ</s>
+        <span class="gset__save">Tiết kiệm 1.360.000 đ</span>
+        <button type="button" class="cbtn gset__add" data-pick="8">Đưa vào dự toán</button>
+      </div>
+    </article>
+    <article class="gset rv" id="set-09">
+      <div class="gset__no" aria-hidden="true">09</div>
+      <div class="gset__body">
+        <h4><span class="sr">Set 09. </span>Sáng Da Mờ Thâm</h4>
+        <p>Kem Superjection (Tranexamic acid, Glutathione) giúp mờ thâm sạm, sáng đều màu; VIBANQM làm dịu.</p>
+        <p class="gset__in"><b>Gồm</b>VIBANQM Lotion + Superjection Cream</p>
+      </div>
+      <div class="gset__price">
+        <span class="gset__lbl">Giá đối tác doanh nghiệp</span>
+        <strong>3.400.000<small>đ</small></strong>
+        <s aria-label="Giá niêm yết 5.060.000 đồng">5.060.000 đ</s>
+        <span class="gset__save">Tiết kiệm 1.660.000 đ</span>
+        <button type="button" class="cbtn gset__add" data-pick="9">Đưa vào dự toán</button>
+      </div>
+    </article>
+    <article class="gset rv" id="set-10">
+      <div class="gset__no" aria-hidden="true">10</div>
+      <div class="gset__body">
+        <h4><span class="sr">Set 10. </span>Bảo Vệ Trọn Vẹn</h4>
+        <p>Kem VIBANQM làm dịu và 2 kem chống nắng SPF50+: balm giữ ẩm, đều màu; lotion nhẹ, chọn theo da.</p>
+        <p class="gset__in"><b>Gồm</b>VIBANQM Lotion + Final Balm + Finish Lotion</p>
+      </div>
+      <div class="gset__price">
+        <span class="gset__lbl">Giá đối tác doanh nghiệp</span>
+        <strong>4.310.000<small>đ</small></strong>
+        <s aria-label="Giá niêm yết 6.060.000 đồng">6.060.000 đ</s>
+        <span class="gset__save">Tiết kiệm 1.750.000 đ</span>
+        <button type="button" class="cbtn gset__add" data-pick="10">Đưa vào dự toán</button>
+      </div>
+    </article>
+    <ul class="notes coll__foot rv">
+      <li>Mọi set đóng trong hộp quà Tết thiết kế mới cho mùa Tết 2027.</li>
+      <li>Đơn vị: đồng; giá đã gồm VAT. Đơn trên 20 triệu được chiết khấu thêm 5 đến 15%.</li>
+    </ul>
   </div>
 </section>
 
@@ -740,6 +949,107 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
     </div>
   </div>
 </section>
+
+<!-- ============ 05 ĐẶC QUYỀN ĐỐI TÁC ============ -->
+<section class="perk" id="dac-quyen" data-group="dac-quyen">
+  <div class="container">
+    <div class="chapter__text">
+      <div class="chapter__head rv">
+        <span class="num" aria-hidden="true">05</span>
+        <div><h2 class="title">Đặc quyền Đối tác</h2><p class="eyebrow">Ưu đãi theo giá trị đơn hàng</p></div>
+      </div>
+      <p class="lead rv" style="--d:.15s">Giá trị đơn tính theo giá đối tác, đã gồm VAT, cộng dồn mọi set trong cùng một đơn. Đơn càng lớn, mức chiết khấu thêm trên giá đối tác càng cao.</p>
+    </div>
+
+    <div class="tiers-wrap rv">
+      <table class="tiers">
+        <caption class="sr">Bậc chiết khấu theo giá trị đơn hàng</caption>
+        <thead><tr><th scope="col">Bậc</th><th scope="col">Giá trị đơn<br>(theo giá đối tác)</th><th scope="col">Chiết khấu thêm</th><th scope="col">Đặc quyền đi kèm</th></tr></thead>
+        <tbody>
+          <tr data-tier="1"><td>Bậc 1</td><td>Đến 20 triệu</td><td>0%</td><td>Hộp quà Tết, hoá đơn VAT</td></tr>
+          <tr data-tier="2"><td>Bậc 2</td><td>Trên 20 đến 50 triệu</td><td>5%</td><td>Như bậc 1</td></tr>
+          <tr data-tier="3"><td>Bậc 3</td><td>Trên 50 đến 150 triệu</td><td>10%</td><td>Như bậc 1</td></tr>
+          <tr data-tier="4"><td>Bậc 4</td><td>Trên 150 triệu</td><td>15%</td><td>Như bậc 1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="perk__boxes">
+      <div class="pbox pbox--navy rv">
+        <h4>Quyền lợi người nhận quà</h4>
+        <p>Mỗi người nhận trở thành thành viên hạng VIP, được mở <strong>tài khoản VIP Member 12 tháng</strong> để mua sản phẩm GIVEHADA | Pharmesthetic đúng giá VIP Member.</p>
+      </div>
+      <div class="pbox pbox--sand rv" style="--d:.1s">
+        <h4>Ví dụ</h4>
+        <p>120 set 08 Đều Màu Cả Ngày = <strong>378.000.000 đ</strong>. Chiết khấu thêm 15%, doanh nghiệp thanh toán <strong>321.300.000 đ</strong>, tiết kiệm 219.900.000 đ (40,6%) so với giá niêm yết.</p>
+      </div>
+    </div>
+
+    <div class="est" id="du-toan">
+      <div class="est__head rv">
+        <p class="eyebrow">Công cụ tính nhanh</p>
+        <h3 class="h3">Dự toán đơn quà</h3>
+        <p class="lead">Nhập số lượng từng set. Bảng bên cạnh tự cộng giá đối tác, xác định bậc chiết khấu và số tiền doanh nghiệp thanh toán. Số liệu mang tính tham khảo, báo giá chính thức do H2Y gửi.</p>
+      </div>
+      <div class="est__grid">
+        <div class="est__list" role="group" aria-label="Số lượng từng set">
+        <div class="erow" data-row="1"><i aria-hidden="true">01</i><label class="erow__name" for="qty-1"><b>Khởi Đầu Sạch Dịu</b><span>1.100.000 đ / set</span></label><div class="step"><button type="button" data-dec="1" aria-label="Bớt một set 01">−</button><input id="qty-1" type="number" inputmode="numeric" min="0" step="1" value="0" data-qty="1" data-price="1100000" data-list="1540000" data-name="Khởi Đầu Sạch Dịu"><button type="button" data-inc="1" aria-label="Thêm một set 01">+</button></div></div>
+        <div class="erow" data-row="2"><i aria-hidden="true">02</i><label class="erow__name" for="qty-2"><b>Dịu Da Kiềm Dầu</b><span>1.450.000 đ / set</span></label><div class="step"><button type="button" data-dec="2" aria-label="Bớt một set 02">−</button><input id="qty-2" type="number" inputmode="numeric" min="0" step="1" value="0" data-qty="2" data-price="1450000" data-list="2060000" data-name="Dịu Da Kiềm Dầu"><button type="button" data-inc="2" aria-label="Thêm một set 02">+</button></div></div>
+        <div class="erow" data-row="3"><i aria-hidden="true">03</i><label class="erow__name" for="qty-3"><b>Ẩm Căng Mọi Lúc</b><span>1.640.000 đ / set</span></label><div class="step"><button type="button" data-dec="3" aria-label="Bớt một set 03">−</button><input id="qty-3" type="number" inputmode="numeric" min="0" step="1" value="0" data-qty="3" data-price="1640000" data-list="2220000" data-name="Ẩm Căng Mọi Lúc"><button type="button" data-inc="3" aria-label="Thêm một set 03">+</button></div></div>
+        <div class="erow" data-row="4"><i aria-hidden="true">04</i><label class="erow__name" for="qty-4"><b>Lá Chắn Nắng</b><span>1.700.000 đ / set</span></label><div class="step"><button type="button" data-dec="4" aria-label="Bớt một set 04">−</button><input id="qty-4" type="number" inputmode="numeric" min="0" step="1" value="0" data-qty="4" data-price="1700000" data-list="2450000" data-name="Lá Chắn Nắng"><button type="button" data-inc="4" aria-label="Thêm một set 04">+</button></div></div>
+        <div class="erow" data-row="5"><i aria-hidden="true">05</i><label class="erow__name" for="qty-5"><b>Mịn Sáng Qua Đêm</b><span>2.280.000 đ / set</span></label><div class="step"><button type="button" data-dec="5" aria-label="Bớt một set 05">−</button><input id="qty-5" type="number" inputmode="numeric" min="0" step="1" value="0" data-qty="5" data-price="2280000" data-list="3300000" data-name="Mịn Sáng Qua Đêm"><button type="button" data-inc="5" aria-label="Thêm một set 05">+</button></div></div>
+        <div class="erow" data-row="6"><i aria-hidden="true">06</i><label class="erow__name" for="qty-6"><b>Chu Trình Sáng Tối</b><span>2.550.000 đ / set</span></label><div class="step"><button type="button" data-dec="6" aria-label="Bớt một set 06">−</button><input id="qty-6" type="number" inputmode="numeric" min="0" step="1" value="0" data-qty="6" data-price="2550000" data-list="3600000" data-name="Chu Trình Sáng Tối"><button type="button" data-inc="6" aria-label="Thêm một set 06">+</button></div></div>
+        <div class="erow" data-row="7"><i aria-hidden="true">07</i><label class="erow__name" for="qty-7"><b>Dịu Nhẹ Ngày Nắng</b><span>2.610.000 đ / set</span></label><div class="step"><button type="button" data-dec="7" aria-label="Bớt một set 07">−</button><input id="qty-7" type="number" inputmode="numeric" min="0" step="1" value="0" data-qty="7" data-price="2610000" data-list="3610000" data-name="Dịu Nhẹ Ngày Nắng"><button type="button" data-inc="7" aria-label="Thêm một set 07">+</button></div></div>
+        <div class="erow" data-row="8"><i aria-hidden="true">08</i><label class="erow__name" for="qty-8"><b>Đều Màu Cả Ngày</b><span>3.150.000 đ / set</span></label><div class="step"><button type="button" data-dec="8" aria-label="Bớt một set 08">−</button><input id="qty-8" type="number" inputmode="numeric" min="0" step="1" value="0" data-qty="8" data-price="3150000" data-list="4510000" data-name="Đều Màu Cả Ngày"><button type="button" data-inc="8" aria-label="Thêm một set 08">+</button></div></div>
+        <div class="erow" data-row="9"><i aria-hidden="true">09</i><label class="erow__name" for="qty-9"><b>Sáng Da Mờ Thâm</b><span>3.400.000 đ / set</span></label><div class="step"><button type="button" data-dec="9" aria-label="Bớt một set 09">−</button><input id="qty-9" type="number" inputmode="numeric" min="0" step="1" value="0" data-qty="9" data-price="3400000" data-list="5060000" data-name="Sáng Da Mờ Thâm"><button type="button" data-inc="9" aria-label="Thêm một set 09">+</button></div></div>
+        <div class="erow" data-row="10"><i aria-hidden="true">10</i><label class="erow__name" for="qty-10"><b>Bảo Vệ Trọn Vẹn</b><span>4.310.000 đ / set</span></label><div class="step"><button type="button" data-dec="10" aria-label="Bớt một set 10">−</button><input id="qty-10" type="number" inputmode="numeric" min="0" step="1" value="0" data-qty="10" data-price="4310000" data-list="6060000" data-name="Bảo Vệ Trọn Vẹn"><button type="button" data-inc="10" aria-label="Thêm một set 10">+</button></div></div>
+        </div>
+        <aside class="est__sum" aria-live="polite">
+          <span class="est__badge" id="est-badge">Đang hiển thị ví dụ: 120 set 08</span>
+          <dl class="est__dl">
+            <div><dt>Số phần quà</dt><dd id="e-count">0</dd></div>
+            <div><dt>Tổng giá niêm yết</dt><dd id="e-list">0 đ</dd></div>
+            <div><dt>Tổng giá đối tác</dt><dd id="e-part">0 đ</dd></div>
+            <div><dt>Bậc chiết khấu</dt><dd id="e-tier">Bậc 1 · 0%</dd></div>
+            <div class="neg"><dt>Chiết khấu thêm</dt><dd id="e-disc">0 đ</dd></div>
+          </dl>
+          <div class="est__pay"><span>Doanh nghiệp thanh toán</span><strong id="e-pay">0 đ</strong><small id="e-save">Tiết kiệm 0 đ so với giá niêm yết</small></div>
+          <p class="est__next" id="e-next">Chọn số lượng để xem bậc chiết khấu.</p>
+          <div class="est__acts">
+            <button type="button" class="cbtn cbtn--fill" id="e-copy">Sao chép dự toán</button>
+            <button type="button" class="cbtn" id="e-clear">Xoá hết</button>
+          </div>
+          <p class="est__msg" id="e-msg"></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 KẾT NỐI & ĐẶT QUÀ ============ -->
+<section class="chapter chapter--light" id="dat-qua" data-group="lien-he">
+  <div class="container">
+    <div class="chapter__text">
+      <div class="chapter__head rv">
+        <span class="num" aria-hidden="true">06</span>
+        <div><h2 class="title">Kết nối &amp; Đặt quà</h2><p class="eyebrow">Năm bước, một đầu mối</p></div>
+      </div>
+    </div>
+    <ol class="steps">
+      <li class="rv"><span>01</span><div><b>Trao đổi nhu cầu</b><p>Số lượng người nhận, ngân sách cho mỗi phần quà, thời gian và địa điểm nhận quà.</p></div></li>
+      <li class="rv"><span>02</span><div><b>Chọn set và nhận báo giá</b><p>Báo giá theo bậc giá trị đơn, giá đã gồm VAT.</p></div></li>
+      <li class="rv"><span>03</span><div><b>Xác nhận đơn hàng</b><p>Doanh nghiệp xác nhận đơn và thanh toán theo báo giá; H2Y xuất hoá đơn VAT.</p></div></li>
+      <li class="rv"><span>04</span><div><b>Đóng gói và giao quà</b><p>H2Y đóng mỗi set vào hộp quà Tết tương ứng và giao đến một địa điểm do doanh nghiệp chỉ định.</p></div></li>
+      <li class="rv"><span>05</span><div><b>Mở tài khoản VIP Member</b><p>Người nhận trở thành thành viên hạng VIP, mua đúng giá VIP Member trong 12 tháng.</p></div></li>
+    </ol>
+    <div class="invite rv">
+      <p>Anh/chị quan tâm có thể kết nối trực tiếp với Hạnh, CEO H2Y, để tìm hiểu sản phẩm, trao đổi nhu cầu quà tặng và cùng lựa chọn phương án phù hợp cho doanh nghiệp.</p>
+      <small>Giá đã gồm VAT · Áp dụng cho đơn quà Tết 2027</small>
+      <a class="nav__cta" href="#lien-he">Xem thông tin liên hệ</a>
+    </div>
+  </div>
+</section>
+
 
 <!-- ============ LIÊN HỆ ============ -->
 <section class="contact" id="lien-he" data-group="lien-he">
@@ -887,130 +1197,97 @@ try{if(location.hash)history.replaceState(null,'',location.pathname+location.sea
     });
   }
 
-  /* VIP: scroll film (frame sequence on canvas) + music */
-  var film=document.getElementById('film'), canvas=document.getElementById('film-canvas');
-  var filmAudio=document.getElementById('film-audio'), soundBtn=document.getElementById('film-sound');
-  var musicWanted=true, musicOn=false, inFilm=false, gestureArmed=false, fadeTimer=null, musicPausedByVqm=false, primed=false;
-  var filmTap=document.getElementById('film-tap');
-  function showFilmTap(on){ if(filmTap) filmTap.hidden=!on; }
-  function setSoundBtn(){ if(!soundBtn) return; soundBtn.classList.toggle('is-on',musicOn); soundBtn.setAttribute('aria-pressed',musicOn?'true':'false'); soundBtn.querySelector('span').textContent=musicOn?'Tắt nhạc':'Bật nhạc'; }
-  function fadeTo(target,ms,done){ if(!filmAudio) return; clearInterval(fadeTimer); var from=filmAudio.volume, t0=performance.now(); fadeTimer=setInterval(function(){ var k=Math.min(1,(performance.now()-t0)/ms); try{ filmAudio.volume=from+(target-from)*k; }catch(e){} if(k>=1){ clearInterval(fadeTimer); if(done) done(); } },50); }
-  function startMusic(){
-    if(!filmAudio||!musicWanted||musicOn) return;
-    try{ filmAudio.volume=0; }catch(e){}
-    var vq=document.getElementById('vqm-video'); if(vq&&!vq.muted){ vq.muted=true; }
-    var pr=filmAudio.play();
-    function ok(){ musicOn=true; primed=true; setSoundBtn(); showFilmTap(false); fadeTo(.75,1400); }
-    if(pr&&pr.then){ pr.then(ok).catch(function(){ armGesture(); if(inFilm&&musicWanted) showFilmTap(true); }); } else ok();
+  /* Quà Tết 2027: highlight a set when reached from the matrix */
+  function flashSet(id){
+    var el=document.getElementById(id); if(!el) return;
+    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
   }
-  function stopMusic(){ showFilmTap(false); if(!filmAudio||!musicOn) return; musicOn=false; setSoundBtn(); fadeTo(0,700,function(){ filmAudio.pause(); }); }
-  function onGesture(){ if(inFilm&&musicWanted&&!musicOn) startMusic(); }
-  function armGesture(){ if(gestureArmed) return; gestureArmed=true; ['pointerdown','touchend','click','keydown'].forEach(function(ev){ document.addEventListener(ev,onGesture,{passive:true}); }); }
-  /* first real tap or click anywhere unlocks audio for later automatic playback */
-  function primeMedia(){
-    if(primed||!filmAudio) return;
-    if(inFilm&&musicWanted&&!musicOn){ startMusic(); return; }
-    try{ filmAudio.volume=0; }catch(e){}
-    var pr=filmAudio.play();
-    if(pr&&pr.then){ pr.then(function(){ primed=true; if(!musicOn){ filmAudio.pause(); try{ filmAudio.currentTime=0; }catch(e){} } }).catch(function(){}); }
-  }
-  ['pointerdown','touchend','click','keydown'].forEach(function(ev){ document.addEventListener(ev,primeMedia,{passive:true}); });
-  if(soundBtn){ soundBtn.addEventListener('click',function(){ if(musicOn){ musicWanted=false; stopMusic(); } else { musicWanted=true; startMusic(); } }); }
-  if(filmTap){ filmTap.addEventListener('click',function(){ musicWanted=true; startMusic(); }); }
-  var filmStage=document.querySelector('.film__stage');
-  if(filmStage){ filmStage.addEventListener('pointerdown',function(){ if(inFilm&&musicWanted&&!musicOn) startMusic(); },{passive:true}); }
-  document.addEventListener('visibilitychange',function(){
-    if(document.hidden){ if(musicOn){ filmAudio.pause(); musicOn=false; setSoundBtn(); } }
-    else if(inFilm&&musicWanted&&!musicOn){ startMusic(); }
+  document.querySelectorAll('[data-flash]').forEach(function(a){
+    a.addEventListener('click',function(){ setTimeout(function(){ flashSet(a.getAttribute('data-flash')); },reduce?0:550); });
   });
 
-  if(film&&canvas&&canvas.getContext){
-    var N=120, FW=720, FH=1280, frames=[], cur=-1, curShift=-1, lastP=0, W=0, H=0, ctx=canvas.getContext('2d');
-    var shadeSide=document.getElementById('film-shade-side');
-    function ease(t){ t=Math.min(1,Math.max(0,t)); return t*t*(3-2*t); }
-    var caps=Array.prototype.slice.call(document.querySelectorAll('#film-caps .cap')), rail=document.getElementById('film-rail'), cue=document.getElementById('film-cue');
-    var stage=canvas.parentNode;
-    function fsrc(i){ var n=String(i+1); while(n.length<3) n='0'+n; return 'assets/film/f'+n+'.webp'; }
-    function loadFrame(i,cb){ if(frames[i]) return; var im=new Image(); im.decoding='async'; var rec={img:im,ok:false}; frames[i]=rec; im.onload=function(){ rec.ok=true; if(cb) cb(i); }; im.onerror=function(){ rec.ok=false; }; im.src=fsrc(i); }
-    function nearest(i){ if(frames[i]&&frames[i].ok) return i; for(var d=1;d<N;d++){ if(i-d>=0&&frames[i-d]&&frames[i-d].ok) return i-d; if(i+d<N&&frames[i+d]&&frames[i+d].ok) return i+d; } return -1; }
-    function draw(force){
-      var want=Math.round(lastP*(N-1)), i=nearest(want);
-      var wide=W>=900, shift=wide?ease((lastP-0.32)/0.08):0;
-      if(i<0||(i===cur&&Math.abs(shift-curShift)<0.003&&!force)) return; cur=i; curShift=shift;
-      var s=wide?Math.min(W/FW,H/FH):Math.max(W/FW,H/FH), w=FW*s, h=FH*s;
-      var xC=(W-w)/2, xR=Math.min(W*0.64-w/2,W-w-24);
-      var x=xC+(xR-xC)*shift, y=(H-h)/2;
-      if(shadeSide) shadeSide.style.opacity=shift.toFixed(3);
-      ctx.clearRect(0,0,W,H); ctx.drawImage(frames[i].img,x,y,w,h);
+  /* Dự toán đơn quà */
+  var qtys=Array.prototype.slice.call(document.querySelectorAll('[data-qty]'));
+  if(qtys.length){
+    var TIERS=[{n:1,max:20e6,r:0},{n:2,max:50e6,r:.05},{n:3,max:150e6,r:.10},{n:4,max:Infinity,r:.15}];
+    var vnd=function(n){ return Math.round(n).toLocaleString('vi-VN')+' đ'; };
+    var $=function(id){ return document.getElementById(id); };
+    var badge=$('est-badge'), msg=$('e-msg'), isExample=false;
+    function tierOf(v){ for(var i=0;i<TIERS.length;i++){ if(v<=TIERS[i].max) return TIERS[i]; } return TIERS[3]; }
+    function read(inp){ var v=parseInt(inp.value,10); if(!isFinite(v)||v<0) v=0; if(v>99999) v=99999; return v; }
+    function state(){
+      var count=0,list=0,part=0,lines=[];
+      qtys.forEach(function(inp){
+        var q=read(inp), p=+inp.getAttribute('data-price'), l=+inp.getAttribute('data-list');
+        inp.closest('.erow').classList.toggle('has',q>0);
+        if(q>0){ count+=q; part+=q*p; list+=q*l; lines.push({id:inp.getAttribute('data-qty'),name:inp.getAttribute('data-name'),q:q,p:p}); }
+      });
+      var t=part>0?tierOf(part):TIERS[0], disc=part*t.r, pay=part-disc;
+      return {count:count,list:list,part:part,tier:t,disc:disc,pay:pay,save:list-pay,lines:lines};
     }
-    function sizeCanvas(){ W=stage.clientWidth; H=stage.clientHeight; var dpr=Math.min(W>=900?2:1.5,window.devicePixelRatio||1); canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0); draw(true); }
-    function updateFilm(){
-      var r=film.getBoundingClientRect(), total=r.height-window.innerHeight;
-      var p=total>0?Math.min(1,Math.max(0,-r.top/total)):0; lastP=p;
-      draw(false);
-      if(rail) rail.style.height=(p*100).toFixed(1)+'%';
-      if(cue) cue.classList.toggle('hide',p>0.04);
-      for(var k=0;k<caps.length;k++){ var a=parseFloat(caps[k].getAttribute('data-from')), b=parseFloat(caps[k].getAttribute('data-to')); caps[k].classList.toggle('is-on',p>=a&&p<b); }
+    function render(){
+      var s=state();
+      $('e-count').textContent=s.count.toLocaleString('vi-VN');
+      $('e-list').textContent=vnd(s.list);
+      $('e-part').textContent=vnd(s.part);
+      $('e-tier').textContent='Bậc '+s.tier.n+' · '+Math.round(s.tier.r*100)+'%';
+      $('e-disc').textContent=s.disc>0?'− '+vnd(s.disc):'0 đ';
+      $('e-pay').textContent=vnd(s.pay);
+      $('e-save').textContent=s.list>0?'Tiết kiệm '+vnd(s.save)+' ('+(s.save/s.list*100).toLocaleString('vi-VN',{maximumFractionDigits:1})+'%) so với giá niêm yết':'Tiết kiệm 0 đ so với giá niêm yết';
+      var next=$('e-next');
+      if(s.part<=0) next.textContent='Chọn số lượng để xem bậc chiết khấu.';
+      else if(s.tier.n<4){ var nt=TIERS[s.tier.n]; next.textContent='Thêm trên '+vnd(s.tier.max-s.part)+' giá trị đơn để lên bậc '+nt.n+', chiết khấu thêm '+Math.round(nt.r*100)+'%.'; }
+      else next.textContent='Đơn đã đạt bậc cao nhất, chiết khấu thêm 15% trên giá đối tác.';
+      document.querySelectorAll('.tiers tr[data-tier]').forEach(function(tr){ tr.classList.toggle('is-cur',s.part>0&&+tr.getAttribute('data-tier')===s.tier.n); });
+      return s;
     }
-    loadFrame(0,function(){ sizeCanvas(); });
-    var preloading=false;
-    function preloadAll(){
-      if(preloading) return; preloading=true;
-      var order=[]; for(var i=0;i<N;i+=10) order.push(i); for(var j=0;j<N;j++) if(j%10) order.push(j);
-      var idx=0, lanes=4;
-      function next(){ if(idx>=order.length) return; var i=order[idx++]; if(frames[i]){ next(); return; } loadFrame(i,function(){ draw(false); next(); }); }
-      for(var l=0;l<lanes;l++) next();
-    }
-    var fio=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ preloadAll(); fio.disconnect(); } });
-    },{rootMargin:'120% 0px 120% 0px',threshold:0});
-    fio.observe(film);
-    var mio=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting&&!inFilm){ inFilm=true; startMusic(); } else if(!e.isIntersecting&&inFilm){ inFilm=false; stopMusic(); } });
-    },{threshold:0});
-    mio.observe(film);
-    window.addEventListener('resize',sizeCanvas);
-    window.__updateFilm=updateFilm;
-    updateFilm();
+    function userEdit(){ if(isExample){ isExample=false; badge.hidden=true; } msg.textContent=''; render(); }
+    qtys.forEach(function(inp){
+      inp.addEventListener('input',userEdit);
+      inp.addEventListener('change',function(){ inp.value=read(inp); userEdit(); });
+      inp.addEventListener('focus',function(){ try{ inp.select(); }catch(e){} });
+    });
+    document.querySelectorAll('[data-inc],[data-dec]').forEach(function(b){
+      b.addEventListener('click',function(){
+        var id=b.getAttribute('data-inc')||b.getAttribute('data-dec'), inp=$('qty-'+id), d=b.hasAttribute('data-inc')?1:-1;
+        inp.value=Math.max(0,read(inp)+d); userEdit();
+      });
+    });
+    document.querySelectorAll('[data-pick]').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(isExample){ qtys.forEach(function(i){ i.value=0; }); }
+        var inp=$('qty-'+b.getAttribute('data-pick'));
+        if(read(inp)===0) inp.value=10;
+        userEdit();
+        var row=inp.closest('.erow');
+        var top=row.getBoundingClientRect().top+window.scrollY-(window.innerHeight*0.35);
+        window.scrollTo({top:Math.max(0,top),behavior:reduce?'auto':'smooth'});
+        setTimeout(function(){ try{ inp.focus({preventScroll:true}); inp.select(); }catch(e){} },reduce?0:600);
+      });
+    });
+    $('e-clear').addEventListener('click',function(){ qtys.forEach(function(i){ i.value=0; }); userEdit(); });
+    $('e-copy').addEventListener('click',function(){
+      var s=render();
+      if(!s.count){ msg.textContent='Chưa có set nào trong dự toán.'; return; }
+      var t=['DỰ TOÁN QUÀ TẾT 2027 · GIVEHADA x Pharmesthetic'];
+      s.lines.forEach(function(l){ t.push('Set '+('0'+l.id).slice(-2)+' '+l.name+': '+l.q+' × '+vnd(l.p)+' = '+vnd(l.q*l.p)); });
+      t.push('Tổng giá đối tác: '+vnd(s.part));
+      t.push('Bậc '+s.tier.n+', chiết khấu thêm '+Math.round(s.tier.r*100)+'%: '+(s.disc>0?'− ':'')+vnd(s.disc));
+      t.push('Doanh nghiệp thanh toán: '+vnd(s.pay)+' (đã gồm VAT)');
+      t.push('Tiết kiệm so với giá niêm yết: '+vnd(s.save));
+      t.push('Liên hệ: Hạnh Huỳnh (Kevin), CEO H2Y JSC · 0918335439');
+      var text=t.join('\n');
+      function ok(){ msg.textContent='Đã sao chép. Dán vào Zalo hoặc email để gửi H2Y.'; }
+      function fail(){ msg.textContent='Trình duyệt chặn sao chép. Anh/chị vui lòng chụp màn hình bảng dự toán.'; }
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(ok,fail); }
+        else fail();
+      }catch(e){ fail(); }
+    });
+    /* example from the profile: 120 × set 08 */
+    $('qty-8').value=120; isExample=true; render();
   }
 
-  /* 03: Vibanqm video, plays by itself; sound comes on when it is in view (after the first tap the browser requires) */
-  var vqmVideo=document.getElementById('vqm-video'), vqmSound=document.getElementById('vqm-sound'), vqmTap=document.getElementById('vqm-tap');
-  if(vqmVideo){
-    var vqmInView=false, vqmUserMuted=false, vqmFade=null;
-    function showVqmTap(on){ if(vqmTap) vqmTap.hidden=!on; }
-    function syncVqm(){ if(!vqmSound) return; var on=!vqmVideo.muted; vqmSound.classList.toggle('is-on',on); vqmSound.setAttribute('aria-pressed',on?'true':'false'); vqmSound.querySelector('span').textContent=on?'Tắt tiếng':'Bật tiếng'; if(on) showVqmTap(false); }
-    function vqmFadeIn(){ clearInterval(vqmFade); try{ vqmVideo.volume=0; }catch(e){} var t0=performance.now(); vqmFade=setInterval(function(){ var k=Math.min(1,(performance.now()-t0)/1000); try{ vqmVideo.volume=k; }catch(e){} if(k>=1) clearInterval(vqmFade); },50); }
-    function vqmPlayMuted(){ vqmVideo.muted=true; syncVqm(); var pr=vqmVideo.play(); if(pr&&pr.catch) pr.catch(function(){}); }
-    function vqmPlayLoud(){
-      if(vqmUserMuted){ vqmPlayMuted(); return; }
-      if(musicOn){ musicWanted=false; musicPausedByVqm=true; stopMusic(); }
-      vqmVideo.muted=false;
-      var pr=vqmVideo.play();
-      if(pr&&pr.then){ pr.then(function(){ vqmFadeIn(); syncVqm(); showVqmTap(false); }).catch(function(){ vqmPlayMuted(); if(vqmInView) showVqmTap(true); armVqmGesture(); }); }
-      else { vqmFadeIn(); syncVqm(); }
-    }
-    var vqmArmed=false;
-    function onVqmGesture(){ if(vqmInView&&vqmVideo.muted&&!vqmUserMuted) vqmPlayLoud(); }
-    function armVqmGesture(){ if(vqmArmed) return; vqmArmed=true; ['pointerdown','touchend','click','keydown'].forEach(function(ev){ document.addEventListener(ev,onVqmGesture,{passive:true}); }); }
-    var qio=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ vqmInView=true; vqmPlayLoud(); }
-        else { vqmInView=false; showVqmTap(false); if(!vqmVideo.muted){ vqmVideo.muted=true; syncVqm(); } if(musicPausedByVqm){ musicPausedByVqm=false; musicWanted=true; if(inFilm) startMusic(); } }
-      });
-    },{threshold:0.35});
-    qio.observe(vqmVideo);
-    if(vqmTap){ vqmTap.addEventListener('click',function(){ vqmUserMuted=false; vqmPlayLoud(); }); }
-    vqmVideo.addEventListener('pointerdown',function(){ if(vqmVideo.muted&&!vqmUserMuted) vqmPlayLoud(); },{passive:true});
-    if(vqmSound){
-      vqmSound.addEventListener('click',function(){
-        if(vqmVideo.muted){ vqmUserMuted=false; vqmPlayLoud(); }
-        else { vqmUserMuted=true; vqmVideo.muted=true; syncVqm(); }
-      });
-      vqmVideo.addEventListener('volumechange',syncVqm);
-    }
-    document.addEventListener('visibilitychange',function(){ if(document.hidden&&!vqmVideo.muted){ vqmVideo.muted=true; syncVqm(); } });
-  }
 
   /* copy */
   var copyBtn=document.getElementById('copy-phone');
