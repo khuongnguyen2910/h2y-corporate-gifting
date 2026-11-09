@@ -640,6 +640,8 @@ body{margin:0}
 .vch .inv{font-size:13px;color:#3a4256;display:grid;gap:2px;background:var(--bg);border-radius:10px;padding:12px}
 .vch .inv b{color:var(--ink)}
 .vch .note{font-weight:600;color:var(--red);font-size:14px;border-left:2px solid var(--gold);padding-left:12px}
+.vch.pg{padding:0;border:0;border-radius:6px;box-shadow:0 12px 32px rgba(13,19,34,.22);background:#fff;overflow:hidden;display:block}
+.vch.pg img{display:block;width:100%;height:auto}
 @media print{body *{visibility:hidden}#vchBox,#vchBox *{visibility:visible}#vchBox{position:absolute;left:0;top:0;width:100%;border:0}}
 </style>
 </head>
@@ -680,7 +682,7 @@ body{margin:0}
   <div class="band-bg" aria-hidden="true"></div>
   <div class="wrap band-in">
     <p class="band-idx">III</p>
-    <p class="band-text">Khi tặng một sản phẩm từ <strong>GIVEHADA x Pharmesthetic</strong>, doanh nghiệp đang trao đi sự thấu cảm sâu sắc, lời nhắn nhủ chăm sóc bản thân và lời chúc an yên thiết thực nhất đến đối tác và đội&nbsp;ngũ.</p>
+    <p class="band-text">Khi tặng một sản phẩm từ <strong>GIVEHADA x Pharmesthetic</strong> doanh nghiệp đang trao đi sự thấu cảm sâu sắc, lời nhắn nhủ chăm sóc bản thân và lời chúc an yên thiết thực nhất đến đối tác và đội&nbsp;ngũ.</p>
   </div>
 </section>
 
@@ -689,7 +691,7 @@ body{margin:0}
   <div class="filters" id="filters" role="group" aria-label="Chọn nhóm quà"></div>
   <p class="segdesc" id="segdesc" aria-live="polite"></p>
   <div class="grid" id="grid"></div>
-  <p class="note">Set 01 đến 09 đóng trong hộp quà H2Y. Set 10 The Ritual đóng trong vali. Mọi set đều kèm thư cảm ơn.</p>
+  <p class="note">Set 01 đến 09 đóng trong hộp quà Hãng. Set 10 The Ritual đóng trong vali. Mọi set đều kèm thư cảm ơn.</p>
   <div class="needs" id="ngan-sach">
     <div><h3>Người nhận cần gì?</h3><div class="q" id="needQ"></div></div>
     <div class="ans" id="needA"></div>
@@ -704,19 +706,19 @@ body{margin:0}
   <div class="shead rv"><h2 class="big-title"><span class="g">Trọn vẹn</span><br>từng phần quà</h2><p class="lead">Mỗi phần quà đến tay người nhận cùng bao bì riêng, lời cảm ơn và một năm ưu đãi.</p></div>
   <div class="incl rv">
     <div class="feats" id="feats">
-      <button class="on" data-v="0"><span class="n">01</span><b>Hộp quà H2Y</b><p>Thiết kế riêng cho Tết 2027. Hoạ tiết chữ H2Y xếp dọc, nắp và đáy rời.</p></button>
+      <button class="on" data-v="0"><span class="n">01</span><b>Hộp quà Hãng</b><p>Thiết kế riêng cho Tết 2027. Hoạ tiết chữ H2Y xếp dọc, nắp và đáy rời.</p></button>
       <button data-v="1"><span class="n">02</span><b>Thư cảm ơn</b><p>Phong bì navy lót tranh khắc. Thiệp "Thank you for your trust" có mã QR mở tài khoản thành viên VIP.</p></button>
       <button data-v="2"><span class="n">03</span><b>VIP Member 12 tháng</b><p>Người nhận mua sản phẩm GIVEHADA và Pharmesthetic đúng giá VIP Member trong 12 tháng.</p></button>
     </div>
     <div class="view" id="view">
-      <div class="on"><span class="tagl">Hộp quà H2Y</span><div class="box3d" aria-hidden="true"><div class="f"></div><div class="b"></div><div class="l"></div><div class="r"></div><div class="t"></div></div></div>
+      <div class="on"><span class="tagl">Hộp quà Hãng</span><div class="box3d" aria-hidden="true"><div class="f"></div><div class="b"></div><div class="l"></div><div class="r"></div><div class="t"></div></div></div>
       <div><span class="tagl">Thư cảm ơn</span><div class="cards2"><img class="c1" src="/qua-tang/a/t_loi.webp" alt="Thiệp cảm ơn, mặt lời cảm ơn Thank you for your trust"><img class="c2" src="/qua-tang/a/t_tranh.webp" alt="Thiệp cảm ơn, mặt tranh khắc"></div></div>
       <div><span class="tagl">VIP Member</span><div class="vipcard" aria-hidden="true"><div class="top"><span>GIVEHADA</span><span>12 THÁNG</span></div><div><div class="nm">VIP Member</div><div class="sm">Pharmesthetic · đúng giá VIP Member</div></div></div></div>
     </div>
     <div class="spec">
-      <div class="nums"><div><b>18x15</b><span>cm, hộp H2Y cao 6 cm</span></div><div><b>14x10</b><span>cm, phong bì thư</span></div><div><b>12</b><span>tháng VIP Member</span></div></div>
+      <div class="nums"><div><b>18x15</b><span>cm, hộp quà Hãng cao 6 cm</span></div><div><b>14x10</b><span>cm, phong bì thư</span></div><div><b>12</b><span>tháng VIP Member</span></div></div>
       <p class="tiny">Đóng gói theo từng set và giao đến một địa điểm doanh nghiệp chỉ định. H2Y xuất hoá đơn VAT.</p>
-      <div class="ritual"><i></i><span>Set 10 The Ritual dùng vali thay cho hộp H2Y, vẫn kèm thư cảm ơn và tài khoản VIP Member.</span></div>
+      <div class="ritual"><i></i><span>Set 10 The Ritual dùng vali thay cho hộp quà Hãng, vẫn kèm thư cảm ơn và tài khoản VIP Member.</span></div>
       <a class="pill" href="#tu-van" data-zalo="">Nhận tư vấn đặt quà <span class="tag">Liên hệ</span></a>
     </div>
   </div>
@@ -836,7 +838,8 @@ const SETS=[
  {n:"10",seg:3,name:"The Ritual",inc:"VIBANQM Lotion + Final Balm + Finish Lotion",use:"Kem VIBANQM làm dịu và 2 kem chống nắng SPF50+: balm giữ ẩm, đều màu; lotion nhẹ, chọn theo da.",p:["vibanqm","finalbalm","finish"],list:6060000,save:1750000,vip:4310000,vali:true,photo:"v_pts5.webp"}
 ];
 const NEEDS=[
- ["Làm sạch, cân bằng da","Chưa rõ loại da",["01","03"],["06"],[]],
+ ["Chưa rõ tình trạng da người nhận","Chọn set hợp mọi loại da",["01","03"],["06"],["10"]],
+ ["Làm sạch, cân bằng da","Phù hợp mọi nhu cầu da",["01","03"],["06"],[]],
  ["Dịu da, kiểm dầu","Da dầu, dễ kích ứng",["02"],["05","06","07"],["08","09","10"]],
  ["Cấp ẩm, căng mịn","Ngồi phòng máy lạnh",["03"],["04"],["08","10"]],
  ["Chống nắng hằng ngày","Hay ra ngoài trời",[],["04","07"],["08","10"]],
@@ -886,11 +889,11 @@ function renderSet(n){
   const hero=$(".hero"),hv=$("#hvid");hero.classList.toggle("ritual",!!sl.ritual);
   if(sl.ritual){show.innerHTML=`<div class="rbk"><img class="rv1" src="/qua-tang/a/p_vali.webp" alt="Vali The Ritual"><img class="rk1" src="/qua-tang/a/p_khan.webp" alt="Khăn lụa bên trong vali"></div><img src="/qua-tang/a/${P.vibanqm[0]}" alt="VIBANQM Lotion" style="--h:.7"><img src="/qua-tang/a/${P.finalbalm[0]}" alt="Final Balm" style="--h:.68"><img src="/qua-tang/a/${P.finish[0]}" alt="Finish Lotion" style="--h:.64"><img class="pk" src="/qua-tang/a/p_card.webp" alt="Thư cảm ơn" style="--h:.3">`;hv.muted=true;hv.play().catch(()=>{})}else hv.pause();
   if(window.__mus)window.__mus();
-  if(!sl.ritual)show.innerHTML=`<img class="pk" src="/qua-tang/a/p_box.webp" alt="Hộp quà H2Y" style="--h:.3">`+imgs(s.p,false)+`<img class="pk" src="/qua-tang/a/p_card.webp" alt="Thư cảm ơn" style="--h:.4">`;
+  if(!sl.ritual)show.innerHTML=`<img class="pk" src="/qua-tang/a/p_box.webp" alt="Hộp quà Hãng" style="--h:.3">`+imgs(s.p,false)+`<img class="pk" src="/qua-tang/a/p_card.webp" alt="Thư cảm ơn" style="--h:.4">`;
   show.classList.add("enter");
   $("#ptr").textContent=fmt(s.vip);
   $("#dial").style.transform=`rotate(${(-(s.vip/1e6-2.7)*K).toFixed(2)}deg)`;
-  $("#hInfo").innerHTML=`<b>Set ${s.n} · ${s.name}.</b> ${s.use}${s.vali?" Gồm vali, khăn lụa bên trong, 3 sản phẩm và thư cảm ơn.":" Kèm hộp quà H2Y và thư cảm ơn."}`;
+  $("#hInfo").innerHTML=`<b>Set ${s.n} · ${s.name}.</b> ${s.use}${s.vali?" Gồm vali, khăn lụa bên trong, 3 sản phẩm và thư cảm ơn.":" Kèm hộp quà Hãng và thư cảm ơn."}`;
   $("#hMeta").innerHTML=`<s class="money">${fmt(s.list)}</s>Tiết kiệm <span class="money">${fmt(s.save)}</span>`;
   $("#hBuyT").textContent=`Tư vấn set ${s.n}`;$("#hBuyP").textContent=fmt(s.vip);
   $("#hBuy").setAttribute("data-zalo",`Set ${s.n} ${s.name} (${fmt(s.vip)})`);
@@ -940,16 +943,16 @@ $("#needQ").innerHTML=NEEDS.map((r,i)=>`<button data-i="${i}" class="${i?"":"on"
 const SEGH=[["Đồng Hành","Dưới 1,7 triệu"],["Tri Ân","1,7 đến 3 triệu"],["Quà tặng đối tác","Trên 3 triệu"]];
 const thumb=s=>P[s.p.length>1?s.p[1]:s.p[0]][0];
 function need(i){const r=NEEDS[i];$$("#needQ button").forEach(b=>b.classList.toggle("on",+b.dataset.i===i));
-  $("#needA").innerHTML=[r[2],r[3],r[4]].map((a,k)=>`<div class="col"><span class="h"><b>${SEGH[k][0]}</b>${SEGH[k][1]}</span>${a.length?a.map(n=>{const s=byN[n];return `<button class="go" data-go="${n}"><img src="/qua-tang/a/${thumb(s)}" alt=""><span>${n} · ${s.name}<small class="money">${fmt(s.vip)}</small></span></button>`}).join(""):'<span class="none">Chưa có set phù hợp ở mức này</span>'}</div>`).join("")+`<div class="tip"><span>Chưa rõ loại da người nhận: chọn set có Tutorial Kit (01, 03, 06), hoặc set 10 với hai kết cấu kem chống nắng.</span><span>Set 05 có sáp peel AHA, BHA, PHA: dùng buổi tối, 1 đến 3 lần mỗi tuần, không dùng khi da đang kích ứng.</span></div>`}
+  $("#needA").innerHTML=[r[2],r[3],r[4]].map((a,k)=>`<div class="col"><span class="h"><b>${SEGH[k][0]}</b>${SEGH[k][1]}</span>${a.length?a.map(n=>{const s=byN[n];return `<button class="go" data-go="${n}"><img src="/qua-tang/a/${thumb(s)}" alt=""><span>${n} · ${s.name}<small class="money">${fmt(s.vip)}</small></span></button>`}).join(""):'<span class="none">Chưa có set phù hợp ở mức này</span>'}</div>`).join("")+`<div class="tip">${i===0?'<span>Chưa rõ tình trạng da người nhận: chọn set có Tutorial Kit (01, 03, 06) để làm sạch, cân bằng, hợp mọi loại da, hoặc set 10 với hai kết cấu kem chống nắng để chọn theo da.</span>':''}<span>Set 05 có sáp peel AHA, BHA, PHA: dùng buổi tối, 1 đến 3 lần mỗi tuần, không dùng khi da đang kích ứng.</span></div>`}
 $("#needQ").addEventListener("click",e=>{const b=e.target.closest("button");if(b)need(+b.dataset.i)});
 $("#needA").addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b)goSet(b.dataset.go)});
-need(1);
+need(2);
 
 /* included switcher */
 $("#feats").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const v=+b.dataset.v;$$("#feats button").forEach(x=>x.classList.toggle("on",x===b));$$("#view > div").forEach((d,k)=>d.classList.toggle("on",k===v))});
 
 /* marquee */
-const items=["Giá đã gồm VAT","Hộp quà H2Y cho Tết 2027","Thư cảm ơn trong mọi phần quà","VIP Member 12 tháng","Chiết khấu thêm đến 15%","Giao đến một địa điểm"];
+const items=["Giá đã gồm VAT","Hộp quà Hãng cho Tết 2027","Thư cảm ơn trong mọi phần quà","VIP Member 12 tháng","Chiết khấu thêm đến 15%","Giao đến một địa điểm"];
 $("#mq").innerHTML=[...items,...items].map(t=>`<span>${t}</span>`).join("");
 
 /* reveal: content stays visible, only slides up slightly when entering */
@@ -1039,13 +1042,7 @@ F.addEventListener("submit",e=>{
   const date=p2(now.getDate())+"/"+p2(now.getMonth()+1)+"/"+now.getFullYear();
   const code="QT27-"+String(now.getFullYear()).slice(2)+p2(now.getMonth()+1)+p2(now.getDate())+"-"+Math.floor(1000+Math.random()*9000);
   last={s,d,date,code};
-  VB.innerHTML=`<div class="top"><div><b>Phiếu mua hàng</b><div style="font-size:12px;color:var(--muted);margin-top:4px">Quà Tết 2027 · H2Y JSC × <b style="font-family:var(--f-body);font-size:12px">GIVEHADA</b></div></div><span>Mã phiếu ${code}<br>Ngày lập ${date}</span></div>
-  <table><thead><tr><th>Set</th><th>SL</th><th>Thành tiền</th></tr></thead><tbody>${s.lines.map(l=>`<tr><td>Set ${l.n} ${esc(l.name)}<br><span style="color:var(--muted);font-size:12px">${fmt(l.vip)} / set</span></td><td>${l.q}</td><td>${fmt(l.q*l.vip)}</td></tr>`).join("")}</tbody></table>
-  <div class="tot"><div><span>Tổng VIP Member Price</span><span>${fmt(s.part)}</span></div><div><span>Bậc ${s.t.n}, chiết khấu thêm ${Math.round(s.t.r*100)}%</span><span>${s.disc>0?"− ":""}${fmt(s.disc)}</span></div><div class="pay"><span>Doanh nghiệp thanh toán (đã gồm VAT)</span><span>${fmt(s.pay)}</span></div><div><span>Tiết kiệm so với giá niêm yết</span><span>${fmt(s.save)}</span></div></div>
-  <div class="inv"><b>Thông tin xuất hoá đơn</b><span>${esc(d.co)}</span><span>MST: ${esc(d.mst)}</span><span>${esc(d.ad)}</span><span>Người liên hệ: ${esc(d.ct)} · ${esc(d.ph)}</span><span>Email: ${esc(d.em)}</span>${d.nt?`<span>Ghi chú: ${esc(d.nt)}</span>`:""}</div>
-  <p class="note">Liên hệ cs để được hỗ trợ hoàn tất đơn hàng!</p>`;
-  $("#ivForm").hidden=true;$("#ivVoucher").hidden=false;
-  $(".ivc").scrollTop=0;
+  makeVoucher().then(()=>{$("#ivForm").hidden=true;$("#ivVoucher").hidden=false;$(".ivc").scrollTop=0});
 });
 $("#vCopy").addEventListener("click",()=>{
   if(!last)return;const{s,d,date,code}=last;
@@ -1059,63 +1056,99 @@ $("#vCopy").addEventListener("click",()=>{
   const fb=()=>{try{const a=document.createElement("textarea");a.value=txt;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();const ok=document.execCommand("copy");a.remove();say(ok?"Đã sao chép phiếu mua hàng":"Trình duyệt chặn sao chép, anh chị vui lòng chụp màn hình phiếu")}catch(_){say("Trình duyệt chặn sao chép, anh chị vui lòng chụp màn hình phiếu")}};
   try{navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(txt).then(()=>say("Đã sao chép phiếu mua hàng"),fb):fb()}catch(_){fb()}
 });
-$("#vPrint").addEventListener("click",()=>{
-  if(!last){return}
-  const{s,d,date,code}=last,W=760,Q=48,R=W-Q,sc=2;
+async function makeVoucher(){
+  const{s,d,date,code}=last,W=560,M=34,R=W-M,sc=3,MINH=794;
   const SANS="'Be Vietnam Pro','Segoe UI',Arial,sans-serif",SERIF="'Cormorant Garamond',Georgia,serif";
-  const wrap=(x,t,mw)=>{const out=[];String(t).split("\n").forEach(par=>{let ln="";par.split(" ").forEach(w=>{const tt=ln?ln+" "+w:w;if(x.measureText(tt).width>mw&&ln){out.push(ln);ln=w}else ln=tt});out.push(ln)});return out};
-  const rr=(x,a,b,w,h,r)=>{x.beginPath();x.roundRect?x.roundRect(a,b,w,h,r):x.rect(a,b,w,h)};
+  const VN="Tiếng Việt ăâêôơưđ ạảãấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữự";
+  try{await Promise.all(["400","500","600","700"].map(w=>document.fonts.load(w+" 14px 'Be Vietnam Pro'",VN)).concat([document.fonts.load("700 30px 'Cormorant Garamond'",VN)]))}catch(_){}
+  let logo=null;const li=document.querySelector(".flogo img");
+  if(li){try{if(!li.complete)await li.decode();if(li.naturalWidth)logo=li}catch(_){}}
+  const lh=70,lw=logo?lh*logo.naturalWidth/logo.naturalHeight:0;
+  const INK="#101a30",MUT="#6f7686",TX="#3a4256",GOLD="#c9a961",BRN="#7a5f22";
+  const wrap=(x,t,mw)=>{const out=[];String(t).split("\n").forEach(par=>{let l="";par.split(" ").forEach(w=>{const tt=l?l+" "+w:w;if(x.measureText(tt).width>mw&&l){out.push(l);l=w}else l=tt});out.push(l)});return out};
   const paint=(x,draw,H)=>{
-    let y=Q;
-    if(draw){x.fillStyle="#f6f4ef";x.fillRect(0,0,W,H);x.fillStyle="#fff";rr(x,20,20,W-40,H-40,16);x.fill();x.strokeStyle="#c9a961";x.lineWidth=1.5;x.stroke()}
-    y+=14;
+    const T=(txt,a,b,font,col,al)=>{if(!draw)return;x.font=font;x.fillStyle=col;x.textAlign=al||"left";x.fillText(txt,a,b)};
+    const LS=v=>{try{x.letterSpacing=v}catch(_){}};
+    const LN=(a,b,c,col,w)=>{if(!draw)return;x.strokeStyle=col;x.lineWidth=w||1;x.beginPath();x.moveTo(a,b);x.lineTo(c,b);x.stroke()};
+    const BOX=(a,b,w,h,r,col)=>{if(!draw)return;x.fillStyle=col;x.beginPath();x.roundRect?x.roundRect(a,b,w,h,r):x.rect(a,b,w,h);x.fill()};
     x.textBaseline="alphabetic";
-    x.font="700 36px "+SERIF;if(draw){x.fillStyle="#101a30";x.textAlign="left";x.fillText("Phiếu mua hàng",Q,y+22)}
-    x.font="500 13px "+SANS;if(draw){x.fillStyle="#6f7686";x.textAlign="right";x.fillText("Mã phiếu "+code,R,y+8);x.fillText("Ngày lập "+date,R,y+28);x.textAlign="left";x.fillText("Quà Tết 2027 · H2Y JSC × GIVEHADA",Q,y+48)}
-    y+=66;
-    if(draw){x.strokeStyle="rgba(16,26,48,.14)";x.lineWidth=1;x.beginPath();x.moveTo(Q,y);x.lineTo(R,y);x.stroke()}
-    y+=26;
-    x.font="600 11px "+SANS;if(draw){x.fillStyle="#6f7686";x.textAlign="left";x.fillText("SET",Q,y);x.textAlign="right";x.fillText("SL",R-190,y);x.fillText("THÀNH TIỀN",R,y)}
-    y+=12;
-    s.lines.forEach(l=>{
-      x.font="500 14px "+SANS;const nm=wrap(x,"Set "+l.n+" "+l.name,R-190-Q-50);
-      const top=y;y+=22;
-      nm.forEach((t,i)=>{if(draw){x.font="500 14px "+SANS;x.fillStyle="#101a30";x.textAlign="left";x.fillText(t,Q,y)}y+=i<nm.length-1?19:0});
-      y+=18;
-      if(draw){x.font="400 12px "+SANS;x.fillStyle="#6f7686";x.textAlign="left";x.fillText(fmt(l.vip)+" / set",Q,y);
-        x.font="500 14px "+SANS;x.fillStyle="#101a30";x.textAlign="right";x.fillText(String(l.q),R-190,top+22);x.fillText(fmt(l.q*l.vip),R,top+22)}
-      y+=14;
-      if(draw){x.strokeStyle="rgba(16,26,48,.12)";x.beginPath();x.moveTo(Q,y);x.lineTo(R,y);x.stroke()}
+    if(draw){x.fillStyle="#fff";x.fillRect(0,0,W,H);x.fillStyle="#0d1322";x.fillRect(0,0,W,120);x.fillStyle=GOLD;x.fillRect(0,120,W,3);if(logo)x.drawImage(logo,M,25,lw,lh)}
+    const tx=M+(logo?lw+16:0);
+    T("Phiếu mua hàng",tx,62,"700 32px "+SERIF,"#eadaa6");
+    T("Quà Tết 2027 · H2Y JSC × GIVEHADA × Pharmesthetic",tx,86,"400 10.5px "+SANS,"#9aa1b3");
+    LS("1.5px");T("MÃ PHIẾU",R,46,"600 8.5px "+SANS,GOLD,"right");LS("0px");
+    T(code,R,66,"600 14px "+SANS,"#fff","right");
+    T("Ngày lập "+date,R,86,"400 10.5px "+SANS,"#9aa1b3","right");
+    // hai bên
+    const cw=(W-2*M-14)/2;
+    const lines=(items,w)=>{const o=[];items.forEach(([t,f,c])=>{x.font=f+SANS;wrap(x,t,w).forEach(z=>o.push([z,f,c]))});return o};
+    const seller=[["H2Y JSC","700 12.5px ",INK],["Công ty cổ phần Thương mại và Đầu tư Quốc tế H2Y","400 10.5px ",TX],["MST 2500630250","400 10.5px ",TX],["3A, L'MAK, 68 Phan Đăng Lưu, Phường Đức Nhuận, TP. Hồ Chí Minh","400 10.5px ",TX],["givehada.com","400 10.5px ",TX]];
+    const buyer=[[d.co,"700 12.5px ",INK],["MST "+d.mst,"400 10.5px ",TX],[d.ad,"400 10.5px ",TX],["Liên hệ: "+d.ct+" · "+d.ph,"400 10.5px ",TX],["Email: "+d.em,"400 10.5px ",TX]].concat(d.nt?[["Ghi chú: "+d.nt,"400 10.5px ",TX]]:[]);
+    const L1=lines(seller,cw-28),L2=lines(buyer,cw-28);
+    let y=146;const bh=40+Math.max(L1.length,L2.length)*14.5+6;
+    [[M,"BÊN BÁN",L1],[M+cw+14,"BÊN MUA, XUẤT HOÁ ĐƠN",L2]].forEach(([a,lab,L])=>{
+      BOX(a,y,cw,bh,10,"#f6f4ef");LS("1.2px");T(lab,a+14,y+20,"600 8.5px "+SANS,BRN);LS("0px");
+      L.forEach(([t,f,c],i)=>T(t,a+14,y+39+i*14.5,f+SANS,c));
     });
-    y+=26;
-    const row=(a,b,bold)=>{x.font=(bold?"700 17px ":"400 14px ")+SANS;if(draw){x.fillStyle="#101a30";x.textAlign="left";x.fillText(a,Q,y);x.textAlign="right";x.fillText(b,R,y)}y+=bold?30:26};
-    row("Tổng VIP Member Price",fmt(s.part));
-    row("Bậc "+s.t.n+", chiết khấu thêm "+Math.round(s.t.r*100)+"%",(s.disc>0?"− ":"")+fmt(s.disc));
-    if(draw){x.strokeStyle="#101a30";x.beginPath();x.moveTo(Q,y-12);x.lineTo(R,y-12);x.stroke()}
-    y+=6;
-    row("Doanh nghiệp thanh toán (đã gồm VAT)",fmt(s.pay),true);
-    row("Tiết kiệm so với giá niêm yết",fmt(s.save));
-    y+=8;
-    const inv=["Thông tin xuất hoá đơn",d.co,"MST: "+d.mst,d.ad,"Người liên hệ: "+d.ct+" · "+d.ph,"Email: "+d.em].concat(d.nt?["Ghi chú: "+d.nt]:[]);
-    x.font="400 13.5px "+SANS;let lines=[];inv.forEach((t,i)=>wrap(x,t,R-Q-32).forEach(z=>lines.push([z,i===0])));
-    const bh=lines.length*21+28;
-    if(draw){x.fillStyle="#f6f4ef";rr(x,Q,y,R-Q,bh,12);x.fill();let yy=y+30;lines.forEach(([t,b])=>{x.font=(b?"700 ":"400 ")+"13.5px "+SANS;x.fillStyle=b?"#101a30":"#3a4256";x.textAlign="left";x.fillText(t,Q+16,yy);yy+=21})}
     y+=bh+26;
-    x.font="700 15px "+SANS;const nt=wrap(x,"Liên hệ cs để được hỗ trợ hoàn tất đơn hàng!",R-Q-20);
-    if(draw){x.fillStyle="#c9a961";x.fillRect(Q,y-16,3,nt.length*22);x.fillStyle="#8f2f27";x.textAlign="left";nt.forEach((t,i)=>x.fillText(t,Q+14,y+i*22))}
-    y+=nt.length*22+Q-6;
+    // bảng
+    const qtyR=R-186,priceR=R-98,nameW=qtyR-34-(M+30);
+    LS("1px");T("STT",M+4,y,"600 8.5px "+SANS,MUT);T("SET QUÀ",M+30,y,"600 8.5px "+SANS,MUT);T("SL",qtyR,y,"600 8.5px "+SANS,MUT,"right");T("ĐƠN GIÁ",priceR,y,"600 8.5px "+SANS,MUT,"right");T("THÀNH TIỀN",R,y,"600 8.5px "+SANS,MUT,"right");LS("0px");
+    y+=9;LN(M,y,R,INK,1.2);
+    s.lines.forEach((l,i)=>{
+      const st=SETS.find(z=>z.n===l.n)||{};
+      x.font="700 12px "+SANS;const nm=wrap(x,"Set "+l.n+" "+l.name,nameW);
+      x.font="400 10px "+SANS;const ic=wrap(x,st.inc||"",nameW);
+      const top=y+8;
+      T(String(i+1).padStart(2,"0"),M+4,top+11,"500 11px "+SANS,MUT);
+      T(String(l.q),qtyR,top+11,"600 12px "+SANS,INK,"right");
+      T(fmt(l.vip),priceR,top+11,"400 11px "+SANS,TX,"right");
+      T(fmt(l.q*l.vip),R,top+11,"700 12px "+SANS,INK,"right");
+      let yy=top+11;
+      nm.forEach((t,k)=>{T(t,M+30,yy,"700 12px "+SANS,INK);yy+=k<nm.length-1?15:0});
+      yy+=14;ic.forEach(t=>{T(t,M+30,yy,"400 10px "+SANS,MUT);yy+=13});
+      T(st.vali?"Kèm thư cảm ơn, không kèm hộp quà Hãng":"Kèm hộp quà Hãng và thư cảm ơn",M+30,yy+1,"500 9.5px "+SANS,BRN);
+      y=yy+12;LN(M,y,R,"rgba(16,26,48,.14)");
+    });
+    // quyền lợi + tổng
+    y+=20;const y0=y,lw2=232,rx=M+lw2+22;
+    const BEN=["Tài khoản VIP Member 12 tháng cho mỗi người nhận","Hoá đơn VAT cho mọi đơn hàng","Giao quà đến một địa điểm doanh nghiệp chỉ định"];
+    x.font="400 10.5px "+SANS;const bl=[];BEN.forEach(t=>wrap(x,t,lw2-34).forEach((z,k)=>bl.push([z,k===0])));
+    const lbh=34+bl.length*15+8;
+    BOX(M,y0,lw2,lbh,10,"#f6f4ef");LS("1.2px");T("QUYỀN LỢI ĐI KÈM",M+14,y0+20,"600 8.5px "+SANS,BRN);LS("0px");
+    bl.forEach(([t,f],k)=>{if(f)T("·",M+14,y0+40+k*15,"700 12px "+SANS,GOLD);T(t,M+26,y0+40+k*15,"400 10.5px "+SANS,TX)});
+    let ry=y0+12;
+    const row=(a,b,bold,col)=>{T(a,rx,ry,(bold?"600 ":"400 ")+"11px "+SANS,col||TX);T(b,R,ry,(bold?"700 ":"500 ")+"11px "+SANS,col||INK,"right");ry+=20};
+    row("Tổng giá niêm yết",fmt(s.lst));
+    row("Tổng VIP Member Price",fmt(s.part));
+    row("Chiết khấu bậc "+s.t.n+" ("+Math.round(s.t.r*100)+"%)",(s.disc>0?"− ":"")+fmt(s.disc));
+    LN(rx,ry-8,R,INK,1.2);ry+=10;
+    LS("1.2px");T("DOANH NGHIỆP THANH TOÁN",rx,ry,"600 8.5px "+SANS,BRN);LS("0px");
+    ry+=28;
+    T(fmt(s.pay),R,ry,"700 27px "+SERIF,INK,"right");ry+=16;T("đã gồm VAT",R,ry,"400 9.5px "+SANS,MUT,"right");ry+=20;
+    T("Tiết kiệm so với giá niêm yết",rx,ry,"400 10px "+SANS,BRN);T(fmt(s.save),R,ry,"600 10.5px "+SANS,BRN,"right");ry+=8;
+    y=Math.max(y0+lbh,ry)+22;
+    // ghi chú
+    BOX(M,y,R-M,40,8,"#fbf6ea");if(draw){x.fillStyle=GOLD;x.fillRect(M,y,3.5,40)}
+    T("Liên hệ cs để được hỗ trợ hoàn tất đơn hàng!",M+20,y+25,"700 13px "+SANS,"#8f2f27");
+    y+=40;
+    T("Phiếu dự kiến, số liệu mang tính tham khảo. Báo giá chính thức do H2Y gửi.",W/2,y+22,"400 9.5px "+SANS,MUT,"center");
+    y+=22;
+    if(draw){x.fillStyle="#0d1322";x.fillRect(0,H-34,W,34);x.fillStyle=GOLD;x.fillRect(0,H-34,W,2);LS("1.4px");x.font="500 9px "+SANS;x.fillStyle="#eadaa6";x.textAlign="center";x.fillText("H2Y JSC × GIVEHADA × PHARMESTHETIC · GIVEHADA.COM",W/2,H-13);LS("0px")}
     return y;
   };
-  const go=()=>{
-    const t0=document.createElement("canvas").getContext("2d");const H=Math.ceil(paint(t0,false));
-    const c=document.createElement("canvas");c.width=W*sc;c.height=H*sc;const x=c.getContext("2d");x.scale(sc,sc);paint(x,true,H);
-    const url=c.toDataURL("image/png");
-    let im=$("#vImg");if(!im){im=document.createElement("img");im.id="vImg";im.alt="Ảnh phiếu mua hàng";im.style.cssText="width:100%;border-radius:12px;margin-top:14px;border:1px solid var(--line)";$("#ivVoucher").appendChild(im)}
-    im.src=url;try{im.scrollIntoView({block:"nearest"})}catch(_){}
-    try{const a=document.createElement("a");a.href=url;a.download="phieu-mua-hang-"+code+".png";document.body.appendChild(a);a.click();a.remove()}catch(_){}
-    say("Đã tạo ảnh phiếu. Nếu trình duyệt chưa tự tải, nhấn giữ hoặc chuột phải vào ảnh bên dưới để lưu.");
-  };
-  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(go,go);
+  const H0=Math.ceil(paint(document.createElement("canvas").getContext("2d"),false,0));
+  const H=Math.max(MINH,H0+22+34);
+  const c=document.createElement("canvas");c.width=W*sc;c.height=H*sc;const x=c.getContext("2d");x.scale(sc,sc);paint(x,true,H);
+  let url="";try{url=c.toDataURL("image/png")}catch(e){url=""}
+  last.url=url;
+  VB.classList.add("pg");VB.innerHTML="";
+  if(url){const im=new Image();im.alt="Phiếu mua hàng A5";im.src=url;VB.appendChild(im)}else{c.style.cssText="width:100%;height:auto;display:block";VB.appendChild(c)}
+}
+$("#vPrint").addEventListener("click",()=>{
+  if(!last||!last.url){say("Không tạo được ảnh, anh chị vui lòng chụp màn hình phiếu");return}
+  try{const a=document.createElement("a");a.href=last.url;a.download="phieu-mua-hang-"+last.code+".png";document.body.appendChild(a);a.click();a.remove()}catch(_){}
+  say("Đã tải ảnh phiếu. Nếu chưa thấy, nhấn giữ hoặc chuột phải vào phiếu để lưu.");
 });
 render();
 })();
