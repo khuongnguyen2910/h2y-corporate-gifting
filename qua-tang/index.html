@@ -7,7 +7,7 @@
 <meta name="description" content="Quà Tết 2027 dành cho doanh nghiệp từ H2Y JSC, GIVEHADA và Pharmesthetic: 10 set quà chăm sóc da, The Ritual Case, VIP Member Price và chiết khấu theo giá trị đơn.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Quà tặng doanh nghiệp Tết 2027 · H2Y JSC">
-<meta property="og:description" content="10 set quà chăm sóc da chuẩn y khoa và The Ritual Case. Đặt quà qua Zalo 0918 335 439.">
+<meta property="og:description" content="10 set quà chăm sóc da chuẩn y khoa và The Ritual Case. Liên hệ người giới thiệu để nhận tư vấn.">
 <meta property="og:image" content="https://h2y-corporate-gifting.vercel.app/qua-tang/a/og.jpg">
 <meta name="theme-color" content="#0d1322">
 <link rel="icon" type="image/png" href="/qua-tang/a/logo_hy.png">
@@ -555,6 +555,19 @@ footer{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 100px)!important}
   .pointer{top:calc(76% + 6px)}
 }
 .fbot{align-items:center;padding-block:24px}.fbot .flogo img{height:56px}
+
+.fab{background:var(--gold)!important;color:var(--navy)!important;box-shadow:0 12px 28px rgba(0,0,0,.35)!important}
+.fab .z{background:var(--navy)!important;color:var(--gold2)!important;font-family:var(--f-head)}
+.tvm{position:fixed;inset:0;z-index:80;background:rgba(5,9,19,.6);backdrop-filter:blur(4px);display:grid;place-items:center;padding:20px;opacity:0;transition:opacity .25s}
+.tvm.on{opacity:1}
+.tvc{background:var(--navy);color:#fff;border:1px solid var(--gold);border-radius:18px;max-width:440px;width:100%;padding:28px;display:grid;gap:14px;text-align:center;transform:translateY(10px);transition:transform .25s}
+.tvm.on .tvc{transform:none}
+.tvk{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.tvc h3{font-family:var(--f-head);font-size:30px;font-weight:600;line-height:1.15}
+.tvc p{color:#c3c6cf;font-size:14px}
+.tvw{color:var(--gold2)!important}
+.tvw:empty{display:none}
+.tvc .pill{justify-self:center;background:var(--gold);color:var(--navy);padding:0 26px}
 body{margin:0}
 :root{padding-top:env(safe-area-inset-top,0px)}
 </style>
@@ -587,7 +600,7 @@ body{margin:0}
     <div class="hero-bar">
       <p class="info" id="hInfo"></p>
       <div class="sw" id="sw" role="group" aria-label="Chọn set"></div>
-      <div class="buy"><div class="meta" id="hMeta"></div><a class="pill" id="hBuy" href="https://zalo.me/0918335439" target="_blank" rel="noopener" data-zalo=""><span id="hBuyT">Đặt qua Zalo</span><span class="tag money" id="hBuyP"></span></a></div>
+      <div class="buy"><div class="meta" id="hMeta"></div><a class="pill" id="hBuy" href="#tu-van" data-zalo=""><span id="hBuyT">Nhận tư vấn</span><span class="tag money" id="hBuyP"></span></a></div>
     </div>
   </div>
 </section>
@@ -633,7 +646,7 @@ body{margin:0}
       <div class="nums"><div><b>18x15</b><span>cm, hộp H2Y cao 6 cm</span></div><div><b>14x10</b><span>cm, phong bì thư</span></div><div><b>12</b><span>tháng VIP Member</span></div></div>
       <p class="tiny">Đóng gói theo từng set và giao đến một địa điểm doanh nghiệp chỉ định. H2Y xuất hoá đơn VAT.</p>
       <div class="ritual"><i></i><span>Set 10 The Ritual dùng vali thay cho hộp H2Y, vẫn kèm thư cảm ơn và tài khoản VIP Member.</span></div>
-      <a class="pill" href="https://zalo.me/0918335439" target="_blank" rel="noopener" data-zalo="">Tư vấn qua Zalo <span class="tag">0918 335 439</span></a>
+      <a class="pill" href="#tu-van" data-zalo="">Nhận tư vấn đặt quà <span class="tag">Liên hệ</span></a>
     </div>
   </div>
 </div></section>
@@ -679,7 +692,16 @@ body{margin:0}
   <div class="fbot"><a class="flogo" href="#top" aria-label="H2Y JSC, về đầu trang"><img src="/qua-tang/a/logo_hy.png" alt="H2Y JSC" width="56" height="100"></a><span>© 2026 H2Y JSC. The Art of Corporate Gifting 2026 đến 2027.</span><span>Giá tính bằng đồng, đã gồm VAT</span></div>
 </div></footer>
 
-<a class="fab" href="https://zalo.me/0918335439" target="_blank" rel="noopener" data-zalo=""><span class="z">Z</span><span>Đặt quà</span></a>
+<a class="fab" href="#tu-van" data-zalo=""><span class="z" aria-hidden="true">?</span><span>Nhận tư vấn</span></a>
+<div class="tvm" id="tvModal" hidden role="dialog" aria-modal="true" aria-labelledby="tvTitle">
+  <div class="tvc">
+    <p class="tvk">Nhận tư vấn</p>
+    <h3 id="tvTitle">Vui lòng liên hệ người giới thiệu để nhận tư vấn</h3>
+    <p class="tvw" id="tvWhat"></p>
+    <p>Người giới thiệu sẽ tư vấn set quà phù hợp, báo giá theo số lượng và hỗ trợ đặt quà cho doanh nghiệp.</p>
+    <button class="pill" id="tvClose">Đã hiểu</button>
+  </div>
+</div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -718,11 +740,15 @@ const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 const toast=$("#toast");let tt;
 const say=m=>{toast.textContent=m;toast.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove("on"),3200)};
 document.addEventListener("click",e=>{
-  const a=e.target.closest("[data-zalo]");if(!a)return;
-  const w=a.getAttribute("data-zalo");
-  const msg=w?`Chào anh Hạnh, doanh nghiệp tôi quan tâm Quà Tết 2027: ${w}. Nhờ anh tư vấn và báo giá.`:"Chào anh Hạnh, doanh nghiệp tôi muốn tìm hiểu Quà Tết 2027 của H2Y. Nhờ anh tư vấn.";
-  try{navigator.clipboard.writeText(msg).then(()=>say("Đã chép sẵn tin nhắn, dán vào Zalo để gửi."),()=>{})}catch(_){}
+  const a=e.target.closest("[data-zalo]");if(!a)return;e.preventDefault();
+  const w=a.getAttribute("data-zalo");const m=$("#tvModal");
+  $("#tvWhat").textContent=w?("Anh/chị đang quan tâm: "+w+"."):"";
+  m.hidden=false;requestAnimationFrame(()=>m.classList.add("on"));$("#tvClose").focus();
 });
+function tvClose(){const m=$("#tvModal");m.classList.remove("on");setTimeout(()=>m.hidden=true,250)}
+$("#tvClose").addEventListener("click",tvClose);
+$("#tvModal").addEventListener("click",e=>{if(e.target.id==="tvModal")tvClose()});
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#tvModal").hidden)tvClose()});
 function sel(){const r=document.createRange();r.selectNodeContents($(".no2"));const s=getSelection();s.removeAllRanges();s.addRange(r)}
 if($("#copyPhone"))$("#copyPhone").addEventListener("click",()=>{try{navigator.clipboard.writeText("0918335439").then(()=>say("Đã chép số 0918 335 439"),sel)}catch(_){sel()}});
 
@@ -753,7 +779,7 @@ function renderSet(n){
   $("#dial").style.transform=`rotate(${(-(s.vip/1e6-2.7)*K).toFixed(2)}deg)`;
   $("#hInfo").innerHTML=`<b>Set ${s.n} · ${s.name}.</b> ${s.use}${s.vali?" Gồm vali, khăn lụa bên trong, 3 sản phẩm và thư cảm ơn.":" Kèm hộp quà H2Y và thư cảm ơn."}`;
   $("#hMeta").innerHTML=`<s class="money">${fmt(s.list)}</s>Tiết kiệm <span class="money">${fmt(s.save)}</span>`;
-  $("#hBuyT").textContent=`Đặt set ${s.n}`;$("#hBuyP").textContent=fmt(s.vip);
+  $("#hBuyT").textContent=`Tư vấn set ${s.n}`;$("#hBuyP").textContent=fmt(s.vip);
   $("#hBuy").setAttribute("data-zalo",`Set ${s.n} ${s.name} (${fmt(s.vip)})`);
   $$("#sw button").forEach(b=>{const on=b.dataset.n===n;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on)});
 }
@@ -783,7 +809,7 @@ $("#grid").innerHTML=SETS.map(s=>`
     <span class="price money">${fmt(s.vip)}</span>
   </div>
   <div class="meta"><div><h3>${s.n} · ${s.name}</h3><p class="inc">${s.inc}</p></div>
-  <a class="pill" href="https://zalo.me/0918335439" target="_blank" rel="noopener" data-zalo="Set ${s.n} ${s.name} (${fmt(s.vip)})" aria-label="Đặt set ${s.n} qua Zalo">Đặt</a></div>
+  <a class="pill" href="#tu-van" data-zalo="Set ${s.n} ${s.name} (${fmt(s.vip)})" aria-label="Nhận tư vấn set ${s.n}">Đặt</a></div>
   <div class="sv"><s class="money">${fmt(s.list)}</s><span>Tiết kiệm <b class="money">${fmt(s.save)}</b></span><span>Giá trên là VIP Member Price</span></div>
 </article>`).join("");
 $$(".cardvid").forEach(v=>{v.muted=true;v.play().catch(()=>{})});
