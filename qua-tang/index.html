@@ -643,6 +643,16 @@ body{margin:0}
 .vch.pg{padding:0;border:0;border-radius:6px;box-shadow:0 12px 32px rgba(13,19,34,.22);background:#fff;overflow:hidden;display:block}
 .vch.pg img{display:block;width:100%;height:auto}
 @media print{body *{visibility:hidden}#vchBox,#vchBox *{visibility:visible}#vchBox{position:absolute;left:0;top:0;width:100%;border:0}}
+/* needs: can bang */
+.needs .q button{display:grid;grid-template-columns:1fr;align-content:center;gap:3px;min-height:60px;padding:10px 16px;line-height:1.3}
+.needs .q button small{text-align:left;font-size:12px}
+.go{height:64px;min-width:0}
+.go img{flex:none;height:44px;width:34px}
+.go span{min-width:0;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.col .h b{white-space:nowrap;font-size:clamp(20px,1.9vw,26px)}
+.col .none{display:flex;align-items:center;height:64px;padding:0 4px}
+.ans{grid-template-rows:1fr auto;align-content:stretch}
+@media (max-width:640px){.ans{grid-template-rows:none}}
 </style>
 </head>
 <body>
@@ -803,7 +813,7 @@ body{margin:0}
       <form class="ivf" id="ivF" autocomplete="off" style="margin-top:14px">
         <label class="full">Tên công ty<input name="co" required placeholder="Công ty TNHH ..."></label>
         <label>Mã số thuế<input name="mst" required inputmode="numeric" placeholder="10 hoặc 13 chữ số"></label>
-        <label>Người liên hệ<input name="ct" required placeholder="Họ và tên"></label>
+        <label>Người liên hệ (người giới thiệu/Master)<input name="ct" required placeholder="Họ và tên"></label>
         <label class="full">Địa chỉ xuất hoá đơn<input name="ad" required placeholder="Số nhà, đường, phường, tỉnh thành"></label>
         <label>Số điện thoại<input name="ph" required inputmode="tel" placeholder="09xx xxx xxx"></label>
         <label>Email nhận hoá đơn<input name="em" type="email" required placeholder="ten@congty.vn"></label>
@@ -1049,7 +1059,7 @@ $("#vCopy").addEventListener("click",()=>{
   const t=["PHIẾU MUA HÀNG QUÀ TẾT 2027 · H2Y JSC x GIVEHADA","Mã phiếu: "+code+" · Ngày lập: "+date];
   s.lines.forEach(l=>t.push("Set "+l.n+" "+l.name+": "+l.q+" x "+fmt(l.vip)+" = "+fmt(l.q*l.vip)));
   t.push("Tổng VIP Member Price: "+fmt(s.part),"Bậc "+s.t.n+", chiết khấu thêm "+Math.round(s.t.r*100)+"%: "+(s.disc>0?"- ":"")+fmt(s.disc),"Doanh nghiệp thanh toán (đã gồm VAT): "+fmt(s.pay),"Tiết kiệm so với giá niêm yết: "+fmt(s.save));
-  t.push("Xuất hoá đơn: "+d.co+" · MST "+d.mst,"Địa chỉ: "+d.ad,"Liên hệ: "+d.ct+" · "+d.ph+" · "+d.em);
+  t.push("Xuất hoá đơn: "+d.co+" · MST "+d.mst,"Địa chỉ: "+d.ad,"Người giới thiệu/Master: "+d.ct,"Điện thoại: "+d.ph+" · Email: "+d.em);
   if(d.nt)t.push("Ghi chú: "+d.nt);
   t.push("Liên hệ cs để được hỗ trợ hoàn tất đơn hàng!");
   const txt=t.join("\n");
@@ -1081,7 +1091,7 @@ async function makeVoucher(){
     // hai bên
     const cw=(W-2*M-14)/2;
     const lines=(items,w)=>{const o=[];items.forEach(([t,f,c])=>{x.font=f+SANS;wrap(x,t,w).forEach(z=>o.push([z,f,c]))});return o};
-    const buyer=[[d.co,"700 12.5px ",INK],["MST "+d.mst,"400 10.5px ",TX],[d.ad,"400 10.5px ",TX],["Liên hệ: "+d.ct+" · "+d.ph,"400 10.5px ",TX],["Email: "+d.em,"400 10.5px ",TX]].concat(d.nt?[["Ghi chú: "+d.nt,"400 10.5px ",TX]]:[]);
+    const buyer=[[d.co,"700 12.5px ",INK],["MST "+d.mst,"400 10.5px ",TX],[d.ad,"400 10.5px ",TX],["Người giới thiệu/Master: "+d.ct,"400 10.5px ",TX],["Điện thoại: "+d.ph+" · Email: "+d.em,"400 10.5px ",TX]].concat(d.nt?[["Ghi chú: "+d.nt,"400 10.5px ",TX]]:[]);
     const L2=lines(buyer,R-M-28);
     let y=146;const bh=40+L2.length*15.5+6;
     [[M,"THÔNG TIN XUẤT HOÁ ĐƠN",L2]].forEach(([a,lab,L])=>{
@@ -1130,7 +1140,7 @@ async function makeVoucher(){
     T("Liên hệ cs để được hỗ trợ hoàn tất đơn hàng!",M+20,y+25,"700 13px "+SANS,"#8f2f27");
     y+=40;
     y+=6;
-    if(draw){x.fillStyle="#0d1322";x.fillRect(0,H-34,W,34);x.fillStyle=GOLD;x.fillRect(0,H-34,W,2);LS("1.4px");x.font="500 9px "+SANS;x.fillStyle="#eadaa6";x.textAlign="center";x.fillText("H2Y JSC × GIVEHADA × PHARMESTHETIC · GIVEHADA.COM",W/2,H-13);LS("0px")}
+    if(draw){x.fillStyle="#0d1322";x.fillRect(0,H-34,W,34);x.fillStyle=GOLD;x.fillRect(0,H-34,W,2);LS("1.4px");x.font="500 9px "+SANS;x.fillStyle="#eadaa6";x.textAlign="center";x.fillText("H2Y JSC × GIVEHADA × PHARMESTHETIC",W/2,H-13);LS("0px")}
     return y;
   };
   const H0=Math.ceil(paint(document.createElement("canvas").getContext("2d"),false,0));
