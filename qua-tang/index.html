@@ -571,6 +571,76 @@ footer{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 100px)!important}
 .tvc .pill{justify-self:center;background:var(--gold);color:var(--navy);padding:0 26px}
 body{margin:0}
 :root{padding-top:env(safe-area-inset-top,0px)}
+
+/* du toan don qua */
+.est{margin-top:96px;display:grid;gap:28px}
+.est__head{text-align:center;display:grid;gap:12px;justify-items:center}
+.est__head .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.est__head h3{font-family:var(--f-head);font-weight:700;font-size:clamp(34px,4.4vw,56px);line-height:1}
+.est__head p.d{max-width:640px;color:var(--muted);font-size:14.5px}
+.est__grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:start}
+.est__list{background:var(--surface);border-radius:var(--r);padding:8px 20px}
+.erow{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.erow:last-child{border-bottom:0}
+.erow i{font-style:normal;font-family:var(--f-num);font-weight:500;font-size:13px;background:var(--ink);color:var(--gold2);text-align:center;padding:3px 0;border-radius:6px}
+.erow .nm{min-width:0;display:grid;line-height:1.3}
+.erow .nm b{font-weight:600;font-size:14.5px}
+.erow .nm span{font-size:12.5px;color:var(--muted)}
+.erow.has .nm b{color:#7a5f22}
+.step{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.step button{width:36px;height:40px;font-size:18px;color:var(--ink)}
+.step button:hover{background:var(--bg)}
+.step input{width:56px;height:40px;border:0;border-inline:1px solid var(--line);text-align:center;font:inherit;font-weight:600;color:var(--ink);background:#fff;-moz-appearance:textfield;appearance:textfield}
+.step input::-webkit-outer-spin-button,.step input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.esum{background:var(--navy);color:#fff;border:1px solid var(--gold);border-radius:var(--r);padding:28px;display:grid;gap:16px;position:sticky;top:84px}
+.esum dl{margin:0;display:grid}
+.esum dl div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line-d);font-size:14px}
+.esum dt{color:var(--muted-d)}
+.esum dd{margin:0;font-weight:600;text-align:right}
+.esum .neg dd{color:var(--gold2)}
+.epay{display:grid;gap:4px;padding-top:4px}
+.epay span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.epay strong{font-family:var(--f-head);font-size:clamp(38px,4vw,52px);line-height:1.05;font-weight:700}
+.epay small{font-size:13px;color:var(--gold2)}
+.enext{font-size:13px;color:#c3c6cf;border-left:1px solid var(--gold);padding-left:12px;line-height:1.55}
+.eacts{display:flex;flex-wrap:wrap;gap:10px}
+.eacts .pill{background:var(--gold);color:var(--navy);padding:0 26px}
+.eacts .pill:disabled{opacity:.45;cursor:not-allowed}
+.eacts .ghost{height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--line-d);color:#fff;font-size:14px;font-weight:500}
+.emsg{font-size:12.5px;color:var(--gold2);min-height:1.2em}
+@media (max-width:900px){.est__grid{grid-template-columns:1fr}.esum{position:static}.est{margin-top:72px}}
+.ivm{position:fixed;inset:0;z-index:85;background:rgba(5,9,19,.62);backdrop-filter:blur(4px);display:grid;place-items:center;padding:16px;opacity:0;transition:opacity .25s}
+.ivm.on{opacity:1}
+.ivm[hidden]{display:none!important}
+.ivc{background:var(--bg);color:var(--ink);border-radius:18px;width:100%;max-width:560px;max-height:calc(100vh - 32px);overflow:auto;padding:28px;display:grid;gap:16px}
+.ivc h3{font-family:var(--f-head);font-size:34px;font-weight:700;line-height:1.05}
+.ivc .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7a5f22;font-weight:600}
+.ivc .sub{font-size:13.5px;color:var(--muted)}
+.ivf{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ivf label{display:grid;gap:5px;font-size:12.5px;font-weight:600}
+.ivf label.full{grid-column:1/-1}
+.ivf input,.ivf textarea{font:inherit;font-weight:400;font-size:14px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);width:100%}
+.ivf textarea{min-height:64px;resize:vertical}
+.ivf input:focus,.ivf textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+@media (max-width:520px){.ivf{grid-template-columns:1fr}}
+.ivb{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.ivb .pill{padding:0 26px}
+.ivb .pill.light{padding:0 22px}
+.vch{background:#fff;border:1px solid var(--gold);border-radius:14px;padding:22px;display:grid;gap:14px}
+.vch .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:12px}
+.vch .top b{font-family:var(--f-head);font-size:26px;line-height:1}
+.vch .top span{font-size:12px;color:var(--muted);text-align:right}
+.vch table{width:100%;border-collapse:collapse;font-size:13px}
+.vch th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:6px 4px;border-bottom:1px solid var(--line)}
+.vch td{padding:7px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+.vch th:last-child,.vch td:last-child,.vch th:nth-child(2),.vch td:nth-child(2){text-align:right;white-space:nowrap}
+.vch .tot{display:grid;gap:4px;font-size:13.5px}
+.vch .tot div{display:flex;justify-content:space-between;gap:12px}
+.vch .tot .pay{font-weight:700;font-size:16px;border-top:1px solid var(--ink);padding-top:8px;margin-top:4px}
+.vch .inv{font-size:13px;color:#3a4256;display:grid;gap:2px;background:var(--bg);border-radius:10px;padding:12px}
+.vch .inv b{color:var(--ink)}
+.vch .note{font-weight:600;color:var(--red);font-size:14px;border-left:2px solid var(--gold);padding-left:12px}
+@media print{body *{visibility:hidden}#vchBox,#vchBox *{visibility:visible}#vchBox{position:absolute;left:0;top:0;width:100%;border:0}}
 </style>
 </head>
 <body>
@@ -684,6 +754,25 @@ body{margin:0}
     <li class="rv"><b>Đóng gói, giao quà</b><span>Mỗi set vào hộp quà Tết hoặc vali, giao đến một địa điểm doanh nghiệp chỉ định.</span></li>
     <li class="rv"><b>Mở VIP Member</b><span>Người nhận mua đúng giá VIP Member trong 12 tháng.</span></li>
   </ol>
+  <div class="est" id="du-toan">
+    <div class="est__head rv"><span class="k">Công cụ tính nhanh</span><h3>Dự toán đơn quà</h3><p class="d">Nhập số lượng từng set. Bảng bên cạnh tự cộng giá VIP Member, xác định bậc chiết khấu và số tiền doanh nghiệp thanh toán. Số liệu mang tính tham khảo, báo giá chính thức do H2Y gửi.</p></div>
+    <div class="est__grid">
+      <div class="est__list" id="estList" role="group" aria-label="Số lượng từng set"></div>
+      <aside class="esum" aria-live="polite">
+        <dl>
+          <div><dt>Số phần quà</dt><dd id="eCount">0</dd></div>
+          <div><dt>Tổng giá niêm yết</dt><dd id="eList">0 đ</dd></div>
+          <div><dt>Tổng VIP Member Price</dt><dd id="ePart">0 đ</dd></div>
+          <div><dt>Bậc chiết khấu</dt><dd id="eTier">Bậc 1 · 0%</dd></div>
+          <div class="neg"><dt>Chiết khấu thêm</dt><dd id="eDisc">0 đ</dd></div>
+        </dl>
+        <div class="epay"><span>Doanh nghiệp thanh toán</span><strong id="ePay">0 đ</strong><small id="eSave">Tiết kiệm 0 đ so với giá niêm yết</small></div>
+        <p class="enext" id="eNext">Chọn số lượng để xem bậc chiết khấu.</p>
+        <div class="eacts"><button type="button" class="pill" id="eGo">Dự kiến đơn quà</button><button type="button" class="ghost" id="eClear">Xoá hết</button></div>
+        <p class="emsg" id="eMsg"></p>
+      </aside>
+    </div>
+  </div>
   
 </div></section>
 </main>
@@ -701,6 +790,29 @@ body{margin:0}
     <p class="tvw" id="tvWhat"></p>
     <p>Người giới thiệu sẽ tư vấn set quà phù hợp, báo giá theo số lượng và hỗ trợ đặt quà cho doanh nghiệp.</p>
     <button class="pill" id="tvClose">Đã hiểu</button>
+  </div>
+</div>
+<div class="ivm" id="ivModal" hidden role="dialog" aria-modal="true" aria-labelledby="ivTitle">
+  <div class="ivc">
+    <div id="ivForm">
+      <p class="k">Dự kiến đơn quà</p>
+      <h3 id="ivTitle">Thông tin xuất hoá đơn</h3>
+      <p class="sub">Điền thông tin công ty để lập phiếu mua hàng. Thông tin chỉ hiển thị trên phiếu, không gửi đi đâu.</p>
+      <form class="ivf" id="ivF" autocomplete="off" style="margin-top:14px">
+        <label class="full">Tên công ty<input name="co" required placeholder="Công ty TNHH ..."></label>
+        <label>Mã số thuế<input name="mst" required inputmode="numeric" placeholder="10 hoặc 13 chữ số"></label>
+        <label>Người liên hệ<input name="ct" required placeholder="Họ và tên"></label>
+        <label class="full">Địa chỉ xuất hoá đơn<input name="ad" required placeholder="Số nhà, đường, phường, tỉnh thành"></label>
+        <label>Số điện thoại<input name="ph" required inputmode="tel" placeholder="09xx xxx xxx"></label>
+        <label>Email nhận hoá đơn<input name="em" type="email" required placeholder="ten@congty.vn"></label>
+        <label class="full">Ghi chú (không bắt buộc)<textarea name="nt" placeholder="Địa điểm, thời gian nhận quà"></textarea></label>
+        <div class="ivb full" style="grid-column:1/-1;margin-top:6px"><button type="button" class="pill light" id="ivCancel">Quay lại</button><button type="submit" class="pill">Xuất phiếu mua hàng</button></div>
+      </form>
+    </div>
+    <div id="ivVoucher" hidden>
+      <div class="vch" id="vchBox"></div>
+      <div class="ivb" style="margin-top:14px"><button type="button" class="pill light" id="vCopy">Sao chép phiếu</button><button type="button" class="pill light" id="vPrint">In phiếu</button><button type="button" class="pill" id="vClose">Đóng</button></div>
+    </div>
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -870,6 +982,86 @@ if("IntersectionObserver" in window){
   if($(".feat"))new IntersectionObserver(es=>{featSeen=es[0].isIntersecting;sync()},{threshold:.5}).observe($(".feat"));
 }
 let f0="1";try{const f=localStorage.getItem("qt27f");if(["1","2","3"].includes(f))f0=f}catch(_){}filter(f0);
+
+/* du toan don qua */
+(function(){
+const TIERS=[{n:1,max:20e6,r:0},{n:2,max:50e6,r:.05},{n:3,max:150e6,r:.10},{n:4,max:Infinity,r:.15}];
+const list=$("#estList");if(!list)return;
+list.innerHTML=SETS.map(s=>`<div class="erow" data-row="${s.n}"><i aria-hidden="true">${s.n}</i><label class="nm" for="q${s.n}"><b>${s.name}</b><span>${fmt(s.vip)} / set</span></label><div class="step"><button type="button" data-d="-1" data-s="${s.n}" aria-label="Bớt một set ${s.n}">&minus;</button><input id="q${s.n}" type="number" inputmode="numeric" min="0" step="1" value="0" data-s="${s.n}"><button type="button" data-d="1" data-s="${s.n}" aria-label="Thêm một set ${s.n}">+</button></div></div>`).join("");
+const ins=$$("#estList input");
+const rd=i=>{let v=parseInt(i.value,10);if(!isFinite(v)||v<0)v=0;return Math.min(v,99999)};
+const tierOf=v=>TIERS.find(t=>v<=t.max)||TIERS[3];
+function calc(){
+  let count=0,lst=0,part=0,lines=[];
+  ins.forEach(i=>{const q=rd(i),s=SETS.find(x=>x.n===i.dataset.s);i.closest(".erow").classList.toggle("has",q>0);
+    if(q>0){count+=q;part+=q*s.vip;lst+=q*s.list;lines.push({n:s.n,name:s.name,q,vip:s.vip})}});
+  const t=part>0?tierOf(part):TIERS[0],disc=part*t.r,pay=part-disc;
+  return{count,lst,part,t,disc,pay,save:lst-pay,lines};
+}
+function render(){
+  const s=calc();
+  $("#eCount").textContent=s.count.toLocaleString("vi-VN");
+  $("#eList").textContent=fmt(s.lst);$("#ePart").textContent=fmt(s.part);
+  $("#eTier").textContent="Bậc "+s.t.n+" · "+Math.round(s.t.r*100)+"%";
+  $("#eDisc").textContent=s.disc>0?"− "+fmt(s.disc):"0 đ";
+  $("#ePay").textContent=fmt(s.pay);
+  $("#eSave").textContent=s.lst>0?"Tiết kiệm "+fmt(s.save)+" ("+(s.save/s.lst*100).toLocaleString("vi-VN",{maximumFractionDigits:1})+"%) so với giá niêm yết":"Tiết kiệm 0 đ so với giá niêm yết";
+  const nx=$("#eNext");
+  if(s.part<=0)nx.textContent="Chọn số lượng để xem bậc chiết khấu.";
+  else if(s.t.n<4){const n2=TIERS[s.t.n];nx.textContent="Thêm trên "+fmt(s.t.max-s.part)+" giá trị đơn để lên bậc "+n2.n+", chiết khấu thêm "+Math.round(n2.r*100)+"%."}
+  else nx.textContent="Đơn đã đạt bậc cao nhất, chiết khấu thêm 15% trên VIP Member Price.";
+  $("#eMsg").textContent="";
+  return s;
+}
+ins.forEach(i=>{i.addEventListener("input",render);i.addEventListener("change",()=>{i.value=rd(i);render()});i.addEventListener("focus",()=>{try{i.select()}catch(_){}})});
+$$("#estList [data-d]").forEach(b=>b.addEventListener("click",()=>{const i=$("#q"+b.dataset.s);i.value=Math.max(0,rd(i)+(+b.dataset.d));render()}));
+$("#eClear").addEventListener("click",()=>{ins.forEach(i=>i.value=0);render()});
+const m=$("#ivModal"),F=$("#ivF"),VB=$("#vchBox");
+let last=null;
+function openM(){m.hidden=false;requestAnimationFrame(()=>m.classList.add("on"))}
+function closeM(){m.classList.remove("on");setTimeout(()=>{m.hidden=true;$("#ivForm").hidden=false;$("#ivVoucher").hidden=true},250)}
+$("#eGo").addEventListener("click",()=>{
+  const s=render();
+  if(!s.count){$("#eMsg").textContent="Chưa có set nào trong dự toán. Nhập số lượng ít nhất một set.";return}
+  $("#ivForm").hidden=false;$("#ivVoucher").hidden=true;openM();
+  setTimeout(()=>{try{F.co.focus()}catch(_){}},80);
+});
+$("#ivCancel").addEventListener("click",closeM);
+$("#vClose").addEventListener("click",closeM);
+m.addEventListener("click",e=>{if(e.target===m)closeM()});
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!m.hidden)closeM()});
+const esc=v=>String(v).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+F.addEventListener("submit",e=>{
+  e.preventDefault();
+  const s=calc();if(!s.count){closeM();return}
+  const d=Object.fromEntries(new FormData(F).entries());
+  const now=new Date(),p2=n=>String(n).padStart(2,"0");
+  const date=p2(now.getDate())+"/"+p2(now.getMonth()+1)+"/"+now.getFullYear();
+  const code="QT27-"+String(now.getFullYear()).slice(2)+p2(now.getMonth()+1)+p2(now.getDate())+"-"+Math.floor(1000+Math.random()*9000);
+  last={s,d,date,code};
+  VB.innerHTML=`<div class="top"><div><b>Phiếu mua hàng</b><div style="font-size:12px;color:var(--muted);margin-top:4px">Quà Tết 2027 · H2Y JSC × <b style="font-family:var(--f-body);font-size:12px">GIVEHADA</b></div></div><span>Mã phiếu ${code}<br>Ngày lập ${date}</span></div>
+  <table><thead><tr><th>Set</th><th>SL</th><th>Thành tiền</th></tr></thead><tbody>${s.lines.map(l=>`<tr><td>Set ${l.n} ${esc(l.name)}<br><span style="color:var(--muted);font-size:12px">${fmt(l.vip)} / set</span></td><td>${l.q}</td><td>${fmt(l.q*l.vip)}</td></tr>`).join("")}</tbody></table>
+  <div class="tot"><div><span>Tổng VIP Member Price</span><span>${fmt(s.part)}</span></div><div><span>Bậc ${s.t.n}, chiết khấu thêm ${Math.round(s.t.r*100)}%</span><span>${s.disc>0?"− ":""}${fmt(s.disc)}</span></div><div class="pay"><span>Doanh nghiệp thanh toán (đã gồm VAT)</span><span>${fmt(s.pay)}</span></div><div><span>Tiết kiệm so với giá niêm yết</span><span>${fmt(s.save)}</span></div></div>
+  <div class="inv"><b>Thông tin xuất hoá đơn</b><span>${esc(d.co)}</span><span>MST: ${esc(d.mst)}</span><span>${esc(d.ad)}</span><span>Người liên hệ: ${esc(d.ct)} · ${esc(d.ph)}</span><span>Email: ${esc(d.em)}</span>${d.nt?`<span>Ghi chú: ${esc(d.nt)}</span>`:""}</div>
+  <p class="note">Liên hệ cs để được hỗ trợ hoàn tất đơn hàng!</p>`;
+  $("#ivForm").hidden=true;$("#ivVoucher").hidden=false;
+  $(".ivc").scrollTop=0;
+});
+$("#vCopy").addEventListener("click",()=>{
+  if(!last)return;const{s,d,date,code}=last;
+  const t=["PHIẾU MUA HÀNG QUÀ TẾT 2027 · H2Y JSC x GIVEHADA","Mã phiếu: "+code+" · Ngày lập: "+date];
+  s.lines.forEach(l=>t.push("Set "+l.n+" "+l.name+": "+l.q+" x "+fmt(l.vip)+" = "+fmt(l.q*l.vip)));
+  t.push("Tổng VIP Member Price: "+fmt(s.part),"Bậc "+s.t.n+", chiết khấu thêm "+Math.round(s.t.r*100)+"%: "+(s.disc>0?"- ":"")+fmt(s.disc),"Doanh nghiệp thanh toán (đã gồm VAT): "+fmt(s.pay),"Tiết kiệm so với giá niêm yết: "+fmt(s.save));
+  t.push("Xuất hoá đơn: "+d.co+" · MST "+d.mst,"Địa chỉ: "+d.ad,"Liên hệ: "+d.ct+" · "+d.ph+" · "+d.em);
+  if(d.nt)t.push("Ghi chú: "+d.nt);
+  t.push("Liên hệ cs để được hỗ trợ hoàn tất đơn hàng!");
+  const txt=t.join("\n");
+  const fb=()=>{try{const a=document.createElement("textarea");a.value=txt;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();const ok=document.execCommand("copy");a.remove();say(ok?"Đã sao chép phiếu mua hàng":"Trình duyệt chặn sao chép, anh chị vui lòng chụp màn hình phiếu")}catch(_){say("Trình duyệt chặn sao chép, anh chị vui lòng chụp màn hình phiếu")}};
+  try{navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(txt).then(()=>say("Đã sao chép phiếu mua hàng"),fb):fb()}catch(_){fb()}
+});
+$("#vPrint").addEventListener("click",()=>{try{window.print()}catch(_){say("Không in được, anh chị vui lòng chụp màn hình phiếu")}});
+render();
+})();
 })();
 </script>
 
