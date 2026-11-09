@@ -811,7 +811,7 @@ body{margin:0}
     </div>
     <div id="ivVoucher" hidden>
       <div class="vch" id="vchBox"></div>
-      <div class="ivb" style="margin-top:14px"><button type="button" class="pill light" id="vCopy">Sao chép phiếu</button><button type="button" class="pill light" id="vPrint">In phiếu</button><button type="button" class="pill" id="vClose">Đóng</button></div>
+      <div class="ivb" style="margin-top:14px"><button type="button" class="pill light" id="vCopy">Sao chép phiếu</button><button type="button" class="pill light" id="vPrint">Lưu ảnh phiếu</button><button type="button" class="pill" id="vClose">Đóng</button></div>
     </div>
   </div>
 </div>
@@ -1059,7 +1059,64 @@ $("#vCopy").addEventListener("click",()=>{
   const fb=()=>{try{const a=document.createElement("textarea");a.value=txt;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();const ok=document.execCommand("copy");a.remove();say(ok?"Đã sao chép phiếu mua hàng":"Trình duyệt chặn sao chép, anh chị vui lòng chụp màn hình phiếu")}catch(_){say("Trình duyệt chặn sao chép, anh chị vui lòng chụp màn hình phiếu")}};
   try{navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(txt).then(()=>say("Đã sao chép phiếu mua hàng"),fb):fb()}catch(_){fb()}
 });
-$("#vPrint").addEventListener("click",()=>{try{window.print()}catch(_){say("Không in được, anh chị vui lòng chụp màn hình phiếu")}});
+$("#vPrint").addEventListener("click",()=>{
+  if(!last){return}
+  const{s,d,date,code}=last,W=760,Q=48,R=W-Q,sc=2;
+  const SANS="'Be Vietnam Pro','Segoe UI',Arial,sans-serif",SERIF="'Cormorant Garamond',Georgia,serif";
+  const wrap=(x,t,mw)=>{const out=[];String(t).split("\n").forEach(par=>{let ln="";par.split(" ").forEach(w=>{const tt=ln?ln+" "+w:w;if(x.measureText(tt).width>mw&&ln){out.push(ln);ln=w}else ln=tt});out.push(ln)});return out};
+  const rr=(x,a,b,w,h,r)=>{x.beginPath();x.roundRect?x.roundRect(a,b,w,h,r):x.rect(a,b,w,h)};
+  const paint=(x,draw,H)=>{
+    let y=Q;
+    if(draw){x.fillStyle="#f6f4ef";x.fillRect(0,0,W,H);x.fillStyle="#fff";rr(x,20,20,W-40,H-40,16);x.fill();x.strokeStyle="#c9a961";x.lineWidth=1.5;x.stroke()}
+    y+=14;
+    x.textBaseline="alphabetic";
+    x.font="700 36px "+SERIF;if(draw){x.fillStyle="#101a30";x.textAlign="left";x.fillText("Phiếu mua hàng",Q,y+22)}
+    x.font="500 13px "+SANS;if(draw){x.fillStyle="#6f7686";x.textAlign="right";x.fillText("Mã phiếu "+code,R,y+8);x.fillText("Ngày lập "+date,R,y+28);x.textAlign="left";x.fillText("Quà Tết 2027 · H2Y JSC × GIVEHADA",Q,y+48)}
+    y+=66;
+    if(draw){x.strokeStyle="rgba(16,26,48,.14)";x.lineWidth=1;x.beginPath();x.moveTo(Q,y);x.lineTo(R,y);x.stroke()}
+    y+=26;
+    x.font="600 11px "+SANS;if(draw){x.fillStyle="#6f7686";x.textAlign="left";x.fillText("SET",Q,y);x.textAlign="right";x.fillText("SL",R-190,y);x.fillText("THÀNH TIỀN",R,y)}
+    y+=12;
+    s.lines.forEach(l=>{
+      x.font="500 14px "+SANS;const nm=wrap(x,"Set "+l.n+" "+l.name,R-190-Q-50);
+      const top=y;y+=22;
+      nm.forEach((t,i)=>{if(draw){x.font="500 14px "+SANS;x.fillStyle="#101a30";x.textAlign="left";x.fillText(t,Q,y)}y+=i<nm.length-1?19:0});
+      y+=18;
+      if(draw){x.font="400 12px "+SANS;x.fillStyle="#6f7686";x.textAlign="left";x.fillText(fmt(l.vip)+" / set",Q,y);
+        x.font="500 14px "+SANS;x.fillStyle="#101a30";x.textAlign="right";x.fillText(String(l.q),R-190,top+22);x.fillText(fmt(l.q*l.vip),R,top+22)}
+      y+=14;
+      if(draw){x.strokeStyle="rgba(16,26,48,.12)";x.beginPath();x.moveTo(Q,y);x.lineTo(R,y);x.stroke()}
+    });
+    y+=26;
+    const row=(a,b,bold)=>{x.font=(bold?"700 17px ":"400 14px ")+SANS;if(draw){x.fillStyle="#101a30";x.textAlign="left";x.fillText(a,Q,y);x.textAlign="right";x.fillText(b,R,y)}y+=bold?30:26};
+    row("Tổng VIP Member Price",fmt(s.part));
+    row("Bậc "+s.t.n+", chiết khấu thêm "+Math.round(s.t.r*100)+"%",(s.disc>0?"− ":"")+fmt(s.disc));
+    if(draw){x.strokeStyle="#101a30";x.beginPath();x.moveTo(Q,y-12);x.lineTo(R,y-12);x.stroke()}
+    y+=6;
+    row("Doanh nghiệp thanh toán (đã gồm VAT)",fmt(s.pay),true);
+    row("Tiết kiệm so với giá niêm yết",fmt(s.save));
+    y+=8;
+    const inv=["Thông tin xuất hoá đơn",d.co,"MST: "+d.mst,d.ad,"Người liên hệ: "+d.ct+" · "+d.ph,"Email: "+d.em].concat(d.nt?["Ghi chú: "+d.nt]:[]);
+    x.font="400 13.5px "+SANS;let lines=[];inv.forEach((t,i)=>wrap(x,t,R-Q-32).forEach(z=>lines.push([z,i===0])));
+    const bh=lines.length*21+28;
+    if(draw){x.fillStyle="#f6f4ef";rr(x,Q,y,R-Q,bh,12);x.fill();let yy=y+30;lines.forEach(([t,b])=>{x.font=(b?"700 ":"400 ")+"13.5px "+SANS;x.fillStyle=b?"#101a30":"#3a4256";x.textAlign="left";x.fillText(t,Q+16,yy);yy+=21})}
+    y+=bh+26;
+    x.font="700 15px "+SANS;const nt=wrap(x,"Liên hệ cs để được hỗ trợ hoàn tất đơn hàng!",R-Q-20);
+    if(draw){x.fillStyle="#c9a961";x.fillRect(Q,y-16,3,nt.length*22);x.fillStyle="#8f2f27";x.textAlign="left";nt.forEach((t,i)=>x.fillText(t,Q+14,y+i*22))}
+    y+=nt.length*22+Q-6;
+    return y;
+  };
+  const go=()=>{
+    const t0=document.createElement("canvas").getContext("2d");const H=Math.ceil(paint(t0,false));
+    const c=document.createElement("canvas");c.width=W*sc;c.height=H*sc;const x=c.getContext("2d");x.scale(sc,sc);paint(x,true,H);
+    const url=c.toDataURL("image/png");
+    let im=$("#vImg");if(!im){im=document.createElement("img");im.id="vImg";im.alt="Ảnh phiếu mua hàng";im.style.cssText="width:100%;border-radius:12px;margin-top:14px;border:1px solid var(--line)";$("#ivVoucher").appendChild(im)}
+    im.src=url;try{im.scrollIntoView({block:"nearest"})}catch(_){}
+    try{const a=document.createElement("a");a.href=url;a.download="phieu-mua-hang-"+code+".png";document.body.appendChild(a);a.click();a.remove()}catch(_){}
+    say("Đã tạo ảnh phiếu. Nếu trình duyệt chưa tự tải, nhấn giữ hoặc chuột phải vào ảnh bên dưới để lưu.");
+  };
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(go,go);
+});
 render();
 })();
 })();
