@@ -1058,9 +1058,8 @@ $("#vCopy").addEventListener("click",()=>{
 });
 async function makeVoucher(){
   const{s,d,date,code}=last,W=560,M=34,R=W-M,sc=3,MINH=794;
-  const SANS="'Be Vietnam Pro','Segoe UI',Arial,sans-serif",SERIF="'Cormorant Garamond',Georgia,serif";
+  const SANS="'Times New Roman',Times,serif",SERIF=SANS;
   const VN="Tiếng Việt ăâêôơưđ ạảãấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữự";
-  try{await Promise.all(["400","500","600","700"].map(w=>document.fonts.load(w+" 14px 'Be Vietnam Pro'",VN)).concat([document.fonts.load("700 30px 'Cormorant Garamond'",VN)]))}catch(_){}
   let logo=null;const li=document.querySelector(".flogo img");
   if(li){try{if(!li.complete)await li.decode();if(li.naturalWidth)logo=li}catch(_){}}
   const lh=70,lw=logo?lh*logo.naturalWidth/logo.naturalHeight:0;
@@ -1082,13 +1081,12 @@ async function makeVoucher(){
     // hai bên
     const cw=(W-2*M-14)/2;
     const lines=(items,w)=>{const o=[];items.forEach(([t,f,c])=>{x.font=f+SANS;wrap(x,t,w).forEach(z=>o.push([z,f,c]))});return o};
-    const seller=[["H2Y JSC","700 12.5px ",INK],["Công ty cổ phần Thương mại và Đầu tư Quốc tế H2Y","400 10.5px ",TX],["MST 2500630250","400 10.5px ",TX],["3A, L'MAK, 68 Phan Đăng Lưu, Phường Đức Nhuận, TP. Hồ Chí Minh","400 10.5px ",TX],["givehada.com","400 10.5px ",TX]];
     const buyer=[[d.co,"700 12.5px ",INK],["MST "+d.mst,"400 10.5px ",TX],[d.ad,"400 10.5px ",TX],["Liên hệ: "+d.ct+" · "+d.ph,"400 10.5px ",TX],["Email: "+d.em,"400 10.5px ",TX]].concat(d.nt?[["Ghi chú: "+d.nt,"400 10.5px ",TX]]:[]);
-    const L1=lines(seller,cw-28),L2=lines(buyer,cw-28);
-    let y=146;const bh=40+Math.max(L1.length,L2.length)*14.5+6;
-    [[M,"BÊN BÁN",L1],[M+cw+14,"BÊN MUA, XUẤT HOÁ ĐƠN",L2]].forEach(([a,lab,L])=>{
-      BOX(a,y,cw,bh,10,"#f6f4ef");LS("1.2px");T(lab,a+14,y+20,"600 8.5px "+SANS,BRN);LS("0px");
-      L.forEach(([t,f,c],i)=>T(t,a+14,y+39+i*14.5,f+SANS,c));
+    const L2=lines(buyer,R-M-28);
+    let y=146;const bh=40+L2.length*15.5+6;
+    [[M,"THÔNG TIN XUẤT HOÁ ĐƠN",L2]].forEach(([a,lab,L])=>{
+      BOX(a,y,R-M,bh,10,"#f6f4ef");LS("1.2px");T(lab,a+14,y+20,"600 8.5px "+SANS,BRN);LS("0px");
+      L.forEach(([t,f,c],i)=>T(t,a+14,y+40+i*15.5,f+SANS,c));
     });
     y+=bh+26;
     // bảng
@@ -1107,8 +1105,7 @@ async function makeVoucher(){
       let yy=top+11;
       nm.forEach((t,k)=>{T(t,M+30,yy,"700 12px "+SANS,INK);yy+=k<nm.length-1?15:0});
       yy+=14;ic.forEach(t=>{T(t,M+30,yy,"400 10px "+SANS,MUT);yy+=13});
-      T(st.vali?"Kèm thư cảm ơn, không kèm hộp quà Hãng":"Kèm hộp quà Hãng và thư cảm ơn",M+30,yy+1,"500 9.5px "+SANS,BRN);
-      y=yy+12;LN(M,y,R,"rgba(16,26,48,.14)");
+      y=yy-1;LN(M,y,R,"rgba(16,26,48,.14)");
     });
     // quyền lợi + tổng
     y+=20;const y0=y,lw2=232,rx=M+lw2+22;
@@ -1132,8 +1129,7 @@ async function makeVoucher(){
     BOX(M,y,R-M,40,8,"#fbf6ea");if(draw){x.fillStyle=GOLD;x.fillRect(M,y,3.5,40)}
     T("Liên hệ cs để được hỗ trợ hoàn tất đơn hàng!",M+20,y+25,"700 13px "+SANS,"#8f2f27");
     y+=40;
-    T("Phiếu dự kiến, số liệu mang tính tham khảo. Báo giá chính thức do H2Y gửi.",W/2,y+22,"400 9.5px "+SANS,MUT,"center");
-    y+=22;
+    y+=6;
     if(draw){x.fillStyle="#0d1322";x.fillRect(0,H-34,W,34);x.fillStyle=GOLD;x.fillRect(0,H-34,W,2);LS("1.4px");x.font="500 9px "+SANS;x.fillStyle="#eadaa6";x.textAlign="center";x.fillText("H2Y JSC × GIVEHADA × PHARMESTHETIC · GIVEHADA.COM",W/2,H-13);LS("0px")}
     return y;
   };
